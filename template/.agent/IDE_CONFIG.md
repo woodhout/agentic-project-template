@@ -1,0 +1,105 @@
+# IDE Configuration
+
+> Multi-machine synchronization and expected IDE setup.
+
+---
+
+## Global IDE Rules
+
+**Source of Truth:** `.antigravity/GEMINI.md`
+
+Run `./scripts/sync-gemini-rules.sh` to symlink to global location (`~/.gemini/GEMINI.md`).
+
+---
+
+## Expected Workflows
+
+| Workflow          | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| `/sync-start`     | Start development session (sync deps, MCP, rules) |
+| `/sync-end`       | End session (docs, commit, push)                  |
+| `/format`         | Auto-format code (ruff, eslint)                   |
+| `/push`           | Commit and push changes                           |
+| `/test`           | Run test suite                                    |
+| `/review`         | Multi-model code review handoff                   |
+| `/simplify`       | Post-implementation cleanup                       |
+| `/pr-review`      | Check open PRs, summarize impact                  |
+| `/roadmap-review` | Review roadmap priorities                         |
+| `/python`         | Run Python commands in venv                       |
+
+**Project-specific:** See `.agent/WORKFLOW_PATTERNS.md` for examples to customize.
+
+---
+
+## MCP Servers
+
+Expected MCP server configuration:
+
+| Server              | Purpose                                 |
+| ------------------- | --------------------------------------- |
+| `github-mcp-server` | GitHub integration (PRs, issues, repos) |
+| `playwright`        | Browser automation                      |
+| `markitdown`        | Document reading (PDF, DOCX, etc.)      |
+| `context7`          | Documentation lookup                    |
+
+### GitHub MCP
+
+Requires `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable with scopes:
+
+- `repo` (full control of repositories)
+- `read:org` (read organization data)
+
+---
+
+## Jules Configuration
+
+Automated tasks via [jules.google](https://jules.google):
+
+| Task               | Schedule   | Prompt                                 |
+| ------------------ | ---------- | -------------------------------------- |
+| Sentinel           | Continuous | `.jules/prompts/sentinel.md`           |
+| Dependency Doctor  | Weekly     | `.jules/prompts/dependency_doctor.md`  |
+| Dead Code Scanner  | Weekly     | `.jules/prompts/dead_code_scanner.md`  |
+| Code Formatter     | Weekly     | `.jules/prompts/code_formatter.md`     |
+| Test Guardian      | Weekly     | `.jules/prompts/test_guardian.md`      |
+| Context Sync       | Weekly     | `.jules/prompts/context_sync.md`       |
+| Compliance Auditor | Weekly     | `.jules/prompts/compliance_auditor.md` |
+
+---
+
+## Pre-Commit Hooks
+
+Configured in `.pre-commit-config.yaml`:
+
+| Hook             | Purpose              | Strictness          |
+| ---------------- | -------------------- | ------------------- |
+| `ruff`           | Python linting + fix | Auto-fix            |
+| `ruff-format`    | Python formatting    | Automatic           |
+| `mypy`           | Type checking        | **Strict**          |
+| `detect-secrets` | Secret detection     | Fail on new secrets |
+
+Install: `pre-commit install`
+Run manually: `pre-commit run --all-files`
+
+---
+
+## VS Code Extensions
+
+Recommended extensions in `.vscode/extensions.json`:
+
+- Python language support
+- Markdown linting
+- YAML validation
+- GitLens
+
+---
+
+## Environment Setup
+
+Ensure these are configured on each machine:
+
+1. **Python environment**: Match `.python-version`
+2. **Node.js**: Match `.nvmrc` or `package.json` engines
+3. **Git hooks**: Run `pre-commit install`
+4. **Global rules**: Run `./scripts/sync-gemini-rules.sh`
+5. **MCP servers**: Refresh after pulling config changes
