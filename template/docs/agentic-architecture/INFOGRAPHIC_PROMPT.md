@@ -1,32 +1,43 @@
-# Visual Prompts: The Agentic Series
+# Infographic Data Sets
 
-_These prompts are designed for generative image AI models (e.g., Midjourney, DALL-E 3, Flux) to create high-quality infographics for each core documentation artifact._
+_The following data sets describes the core information and functional relationships within our agentic infrastructure. This "raw data" can be provided to a generative AI to construct visualizations._
 
 ---
 
-## 1. Infographic: The Agentic Protocol (System Flow)
+## 1. System Lifecycle Data (The Protocol)
 **Correlated Doc:** `THE_AGENTIC_PROTOCOL.md`
 
-**Prompt:** 
-> Create a sophisticated, large-format technical infographic titled "The Agentic Protocol". The design should feature a "Genesis" stage at the top involving a glowing, multi-faceted "Strategic Intelligence Crystal" floating in a clean, futuristic laboratory workspace. Digital streams of architectural data flow downward into a complex, semi-transparent repository scaffold labeled "The Scaffolding". In the center, depict the "Symbiotic Loop" as two interlocking gears—one labeled "Human Intuition," the other "AI Agent Protocol"—with high-tech "Skils" and "Workflows" icons serving as the drive belts. At the bottom, show the "Night Shift" represented by a dark, starry backdrop with stylized robotic drones or "Sentinels" patrolling lines of code, creating holographic Pull Requests. Style: High-tech blueprints mixed with 3D isometric cyberpunk aesthetics, using a palette of deep navy, electric cyan, and soft circuitry-green.
+**Core Data Points:**
+- **Source**: Gemini Gem (Generative Intelligence).
+- **Primary Outputs**: `BOOTSTRAP.json` (Manifest) and `docs/` (Intent docs: PRD, Architecture).
+- **Process**: Scaffold Hydration (Merging template governance with project intent).
+- **Governance Layers**: `AGENTS.md` (Rules), `VERSIONS.md` (State), `QUICK_REFERENCE.md` (Maps).
+- **Operational Loop**: Workflows (Entry) → Skills (Procedures) → Decisions (Execution) → Verification (Check).
+- **The Maintenance Loop**: GitHub Actions (Scheduler) → Jules API (Asynchronous Execution) → Automating Pull Requests (Remediation).
 
 ---
 
-## 2. Infographic: The Daily Developer Aid (The Flow)
+## 2. Developer Workflow Data (The Daily Flow)
 **Correlated Doc:** `DEVELOPER_JOB_AID.md`
 
-**Prompt:** 
-> Create a clean, highly organized daily checklist infographic titled "Developer Job Aid: The Flow". The layout should be split into four clear quadrants or a circular "Clock" flow. Quadrant 1: "The Wake-up" showing a stylized terminal with `/sync-start` and code being synchronized. Quadrant 2: "The Core" showing a stylized "Constitution" (AGENTS.md) being referenced by a human and an AI silhouette collaborating. Quadrant 3: "Safety & Recovery" showing a shield icon and an "Undo" arrow representing the `/recover` workflow. Quadrant 4: "The Hand-off" showing a glowing envelope or PR icon being sent to a cloud. Aesthetic: Minimalist, "Flat Design" with bold colors (Success-Green, Warning-Amber, Info-Blue) on a dark slate background, using simple, universally recognizable tech icons.
+**Core Data Points:**
+- **Step 1: Synchronize**: Command `/sync-start` triggers environment check and code pull.
+- **Step 2: Develop**: Collaborative coding governed by the `AGENTS.md` constitution (Append-only logs, structured intelligence).
+- **Step 3: Audit**: Continuous safety checks via `/test`, `/review`, and Jules automated scanning.
+- **Step 4: Cleanup & Commit**: Commands `/push` and `/sync-end` ensure documentation (Changelog, QuickRef) is final and code is pushed.
+- **Emergency Ops**: The `/recover` path for rollbacks and process resets.
 
 ---
 
-## 3. Infographic: Architectural Rationales (The Why)
+## 3. Architecture Logic Data (The Rationale)
 **Correlated Doc:** `ARCHITECTURE_DECISIONS.md`
 
-**Prompt:** 
-> Create a conceptual "Blueprint" style infographic titled "Architecture Decision Records". The visual should resemble a detailed engineering draft or a "Thinker’s Desk" covered in structural plans. The center should feature a "Split-Brain" comparison: on one side, a disorganized pile of traditional scripts, and on the other, a clean, structured "Skill-Based Procedure" hierarchy that is clearly legible. Include a distinct callout for the "Fire-and-Forget" pattern, visualized as a fast-moving data packet (GHA) igniting a powerful background process (Jules API) while leaving the primary timeline clear. Another callout should show the "Environment vs Runtime" split, depicted as two separate, secure containers labeled "Agentic Tools" and "Application Code". Style: Technical blueprint paper (blueprint blue with white lines), diagrammatic, drafting-table style, very professional and logical.
+**Core Data Points:**
+- **Problem: High CI costs** → **Solution: Fire-and-Forget Pattern** (GHA triggers API then exits).
+- **Problem: AI Hallucinations** → **Solution: Procedure-based Skills** (Standardized markdown checklists vs opaque scripts).
+- **Problem: Tooling Drift** → **Solution: Environment Isolation** (Tracking tools in `VERSIONS.md` separately from runtime dependencies).
+- **Problem: Protocol Erosion** → **Solution: Non-Negotiable Governance** (Enforced `AGENTS.md` instructions).
+- **Technical Relationships**: 
+    - Dependency: Template → Downstream Project.
+    - Lifecycle: Planning → Execution → Verification → Maintenance.
 
----
-
-## Usage Note
-These prompts are optimized for models that understand technical hierarchy. Paste these into your preferred image generator to create visual job aids for your team.
