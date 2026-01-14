@@ -106,15 +106,30 @@ Open your new project in Antigravity and start coding with AI agents!
 
 The complete agentic development infrastructure:
 
-| Category         | Files                                                       |
-| ---------------- | ----------------------------------------------------------- |
-| **Core**         | AGENTS.md, QUICK_REFERENCE.md                               |
-| **Pre-commit**   | .pre-commit-config.yaml, .secrets.baseline                  |
-| **Global Rules** | .antigravity/GEMINI.md, scripts/sync-gemini-rules.sh        |
-| **Workflows**    | 10 universal workflows (sync-start, sync-end, review, etc.) |
-| **Skills**       | bootstrap, jules-setup, skill-evolution                     |
-| **Jules**        | 12 automation prompts (sentinel, dependency-doctor, etc.)   |
-| **Patterns**     | GCP.md, LLM_APPS.md, EXAMPLES.md                            |
+| Category         | Files                                                     |
+| ---------------- | --------------------------------------------------------- |
+| **Core**         | AGENTS.md, QUICK_REFERENCE.md                             |
+| **Pre-commit**   | .pre-commit-config.yaml, .secrets.baseline                |
+| **Global Rules** | .antigravity/GEMINI.md, scripts/sync-gemini-rules.sh      |
+| **Workflows**    | 10 universal workflows (see below)                        |
+| **Skills**       | 8 reusable skills (see below)                             |
+| **Jules**        | 12 automation prompts (sentinel, dependency-doctor, etc.) |
+| **Patterns**     | GCP.md, LLM_APPS.md, EXAMPLES.md                          |
+
+### Skills (`template/.agent/skills/`)
+
+Skills are complex, reusable capabilities with decision trees and examples:
+
+| Skill              | Purpose                                   |
+| ------------------ | ----------------------------------------- |
+| `bootstrap`        | Create new project from Gem seed files    |
+| `jules-setup`      | Configure Jules automation via browser    |
+| `skill-evolution`  | Identify and create new skills over time  |
+| `code-review`      | Multi-model review with handoff protocol  |
+| `simplify`         | Dead code detection, refactoring guidance |
+| `pr-triage`        | Review and manage open pull requests      |
+| `first-time-setup` | New environment onboarding                |
+| `debug-tests`      | Systematic test failure diagnosis         |
 
 ### Gem Prompts (`gem-prompts/`)
 

@@ -1,105 +1,32 @@
 ---
-description: multi-model code review via artifact handoff
+description: perform multi-model code review with artifact handoff
 ---
 
-# Code Review Workflow
+# Review Workflow
 
-Multi-model code review using the Review Handoff protocol.
+Invoke the `code-review` skill for comprehensive code reviews.
 
-## Best Practice
+## Quick Usage
 
-Start this workflow in a **NEW conversation** with a **different model**
-than the one that wrote the code.
+For a simple self-review:
 
-Example: If code was written in Claude Opus 4.5, review with Gemini 3 Pro.
+```
+Review my recent changes
+```
 
-## Steps
+For multi-model handoff:
 
-1. **Read the handoff artifact**:
+```
+Perform a multi-model code review of [files/PR]
+```
 
-   ```bash
-   cat .agent/PENDING_REVIEW.md
-   ```
+## What the Skill Does
 
-2. **Review the changes**:
+The `code-review` skill provides:
 
-   ```bash
-   git diff main
-   ```
+1. **Review type selection** (self, multi-model, PR)
+2. **Severity classification** (🔴 Security → 🟢 Enhancement)
+3. **Comprehensive checklist** (correctness, security, performance, tests)
+4. **Multi-model handoff protocol** with artifact template
 
-   Or for staged changes:
-
-   ```bash
-   git diff --cached
-   ```
-
-3. **Analyze against stated goals**:
-
-   - Does the implementation match the stated goal?
-   - Are there security vulnerabilities?
-   - Are there performance issues?
-   - Are best practices followed?
-   - Is error handling robust?
-   - Are there edge cases not covered?
-
-4. **Check for common anti-patterns**:
-
-   - Review the anti-pattern table in AGENTS.md
-   - Check for append-only file violations
-   - Verify dependency sync (requirements.txt, package.json)
-
-5. **Create review report**:
-
-   Create `.agent/REVIEW_REPORT.md` with findings:
-
-   ```markdown
-   # Code Review Report
-
-   **Reviewer Model**: [Your model name]
-   **Date**: [YYYY-MM-DD]
-   **Reviewed Changes**: [Brief description]
-
-   ## Summary
-
-   [Overall assessment]
-
-   ## Issues Found
-
-   ### Critical
-
-   - [Issue 1]
-
-   ### Medium
-
-   - [Issue 2]
-
-   ### Minor
-
-   - [Issue 3]
-
-   ## Recommendations
-
-   - [Suggestion 1]
-   - [Suggestion 2]
-
-   ## Approval Status
-
-   - [ ] Approved - Ready to merge
-   - [ ] Approved with minor changes
-   - [ ] Requires changes before approval
-   ```
-
-6. **Clean up handoff artifact**:
-
-   After review is complete and addressed:
-
-   ```bash
-   rm .agent/PENDING_REVIEW.md
-   ```
-
-## Notes
-
-- Reviewer agents should focus on finding issues, not justifying
-  the original implementation
-- Leverage the different model's strengths (e.g., Gemini for analysis,
-  Claude for implementation quality)
+See `.agent/skills/code-review/SKILL.md` for full details.

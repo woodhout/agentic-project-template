@@ -12,7 +12,15 @@ description: run the complete pytest test suite
    source .venv/bin/activate && python -m pytest tests/ -v
    ```
 
-2. **Visual Evidence**:
+2. **If tests fail:**
+
+   Invoke the `debug-tests` skill for systematic diagnosis:
+
+   - Identify failure type (import, assertion, fixture, timeout)
+   - Follow decision tree to diagnose root cause
+   - Apply fix and re-run tests
+
+3. **Visual Evidence**:
    - If running browser/UI tests (e.g., via Playwright), capture screenshots of
      critical states or failure sessions.
    - Embed images/recordings in `walkthrough.md`.

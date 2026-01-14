@@ -24,24 +24,33 @@ This workflow ensures your work is documented, committed, pushed, and local proc
    - Template uses `__VENV_PYTHON__` placeholder for machine-specific Python paths
    - Commit the template changes so other machines get the update
 
-3. **Documentation Refresh**:
+3. **Skill Evolution Check**:
 
-   - Update [CHANGELOG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/CHANGELOG.md) with a summary of today's work.
-   - Update [QUICK_REFERENCE.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/QUICK_REFERENCE.md) if architecture, API, or models changed.
-   - Update [COMPLIANCE_LOG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/COMPLIANCE_LOG.md) if security or dependency changes were made.
-   - Check if [DEVELOPMENT.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/DEVELOPMENT.md) needs updates.
-   - **If agent errors occurred**, add to [AGENTS.md Section 16](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/AGENTS.md) anti-patterns table.
+   Invoke the `skill-evolution` skill to review this session:
 
-4. **Commit and Push**:
+   - Were there recurring multi-step patterns?
+   - Any workflows that became complex?
+   - Opportunities for new skills?
+
+   If skill opportunities are identified, propose them to the user.
+
+4. **Documentation Refresh**:
+
+   - Update CHANGELOG.md with a summary of today's work.
+   - Update QUICK_REFERENCE.md if architecture, API, or models changed.
+   - Update COMPLIANCE_LOG.md if security or dependency changes were made.
+   - **If agent errors occurred**, add to AGENTS.md anti-patterns table.
+
+5. **Commit and Push**:
 
    - Stage changes: `git add .`
    - Review changes: `git status`
    - Commit: `git commit -m "feat: session sync - [brief description]"`
    - Push: `git push origin main`
 
-5. **Optional: Redeploy**:
+6. **Optional: Redeploy**:
 
-   - If changes affect the production API, run the `/deploy` workflow.
+   - If changes affect the production API, run the `/deploy` workflow (if available).
 
-6. **Final Check**:
+7. **Final Check**:
    - Ensure all files are saved and artifacts are synchronized.

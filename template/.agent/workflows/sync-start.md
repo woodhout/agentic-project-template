@@ -10,6 +10,18 @@ This workflow ensures your local environment is synchronized with the remote rep
 
 // turbo-all
 
+### 0. First-Time Setup Check
+
+**If any of these are true, invoke the `first-time-setup` skill:**
+
+- `.venv/` directory doesn't exist
+- Pre-commit hooks not installed (`.git/hooks/pre-commit` missing)
+- `~/.gemini/GEMINI.md` symlink doesn't exist
+
+The skill will handle complete environment setup before continuing.
+
+---
+
 1. **Pull latest changes**:
 
    ```bash

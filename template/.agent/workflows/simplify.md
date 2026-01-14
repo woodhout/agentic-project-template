@@ -4,60 +4,30 @@ description: post-implementation cleanup for dead code, duplication, and complex
 
 # Simplify Workflow
 
-Review and clean up code after feature implementation. Focus on maintainability.
+Invoke the `simplify` skill for code cleanup and refactoring.
 
-## Pre-Check
+## Quick Usage
 
-// turbo
-List recently changed files for targeted review:
-
-```bash
-git diff --name-only HEAD~5 | grep -E '\.(py|tsx?|jsx?)$' | head -20
+```
+Simplify the codebase
 ```
 
-## Python Cleanup
+Or target specific areas:
 
-### 1. Find Unused Code
-
-```bash
-source .venv/bin/activate && pip install vulture --quiet && vulture app/ --min-confidence 80
+```
+Look for dead code in app/
+Check for duplication in the routes
+Reduce complexity in the handlers
 ```
 
-### 2. Check Complexity
+## What the Skill Does
 
-```bash
-source .venv/bin/activate && pip install radon --quiet && radon cc app/ -a -s --min C
-```
+The `simplify` skill provides:
 
-### 3. Review for Issues
+1. **Dead code detection** (unused imports, functions, variables)
+2. **Duplication analysis** (copy-paste code, repeated patterns)
+3. **Complexity metrics** (function length, nesting depth)
+4. **Dependency audit** (unused packages)
+5. **Refactoring patterns** (extract function, early return, constants)
 
-Check changed files for:
-
-- [ ] Unused imports, functions, variables
-- [ ] Repeated code patterns → extract to helpers
-- [ ] Long functions (>50 lines) → break into smaller units
-- [ ] Deep nesting (>3 levels) → flatten with early returns
-- [ ] Unclear variable/function names → rename for clarity
-
-## Frontend Cleanup
-
-### 4. Find Unused Exports
-
-```bash
-cd frontend && npx knip --include exports
-```
-
-### 5. Review Components
-
-Check for:
-
-- [ ] Unused props or state
-- [ ] Components that can be split
-- [ ] Repeated JSX patterns → extract components
-- [ ] Inline styles → move to CSS
-
-## Notes
-
-- Run after completing a feature, before final PR review
-- Focus on files you changed, not entire codebase
-- Jules can run weekly dead code scan and create cleanup issues
+See `.agent/skills/simplify/SKILL.md` for full details.

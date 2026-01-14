@@ -1,0 +1,188 @@
+---
+name: PR Triage
+description: Review open PRs and recommend action (merge, rebase, close)
+---
+
+# PR Triage Skill
+
+Efficiently triage open pull requests and recommend appropriate actions.
+
+## When to Use This Skill
+
+Use this skill when:
+
+- User asks to "review PRs" or "check open PRs"
+- When `/pr-review` workflow is invoked
+- During regular maintenance cycles
+- When Jules creates PRs that need review
+
+## Decision Tree
+
+```
+For each open PR:
+│
+├── Is CI passing?
+│   ├── Yes → Continue to review
+│   └── No → Diagnose failure
+│       ├── Flaky test → Re-run CI
+│       ├── Real failure → Request fixes
+│       └── Infra issue → Flag for investigation
+│
+├── Are there merge conflicts?
+│   ├── Yes → Recommend rebase
+│   │   └── If author unresponsive → Offer to rebase
+│   └── No → Continue
+│
+├── Is PR stale (>7 days no activity)?
+│   ├── Yes → Ping author or close
+│   └── No → Continue
+│
+├── Is it a draft?
+│   ├── Yes → Skip unless explicitly requested
+│   └── No → Continue
+│
+├── Review content
+│   ├── Automated (Jules/Dependabot)
+│   │   ├── Security fix → Priority merge
+│   │   ├── Dependency update → Review changelog, merge
+│   │   └── Code cleanup → Quick review, merge
+│   └── Manual PR
+│       └── Full code review (invoke code-review skill)
+│
+└── Final recommendation
+    ├── ✅ Merge — Ready, approved, CI passing
+    ├── 🔄 Rebase — Has conflicts
+    ├── ⏸️ Wait — Needs author response
+    ├── ❌ Close — Stale, superseded, or abandoned
+    └── 👀 Review — Needs detailed review
+```
+
+## Process
+
+### Step 1: Fetch Open PRs
+
+```bash
+gh pr list --state open --json number,title,author,createdAt,updatedAt,mergeable,statusCheckRollup
+```
+
+Or use GitHub MCP:
+
+```
+mcp_github_list_pull_requests(
+    owner="[owner]",
+    repo="[repo]",
+    state="open"
+)
+```
+
+### Step 2: Categorize PRs
+
+| Category         | Criteria                            | Action                   |
+| ---------------- | ----------------------------------- | ------------------------ |
+| **Auto-merge**   | Bot PR, passing CI, no conflicts    | Merge                    |
+| **Quick review** | Small diff (<100 lines), passing CI | Brief review → merge     |
+| **Full review**  | Large diff, new feature             | Invoke code-review skill |
+| **Blocked**      | Failing CI, conflicts, stale        | Diagnose and resolve     |
+
+### Step 3: For Each PR
+
+**Check CI Status:**
+
+```bash
+gh pr checks [PR_NUMBER]
+```
+
+**Check for conflicts:**
+
+```bash
+gh pr view [PR_NUMBER] --json mergeable
+```
+
+**Review diff:**
+
+```bash
+gh pr diff [PR_NUMBER]
+```
+
+### Step 4: Take Action
+
+**Merge:**
+
+```bash
+gh pr merge [PR_NUMBER] --squash --delete-branch
+```
+
+**Rebase:**
+
+```bash
+gh pr checkout [PR_NUMBER]
+git fetch origin main
+git rebase origin/main
+git push --force-with-lease
+```
+
+**Close:**
+
+```bash
+gh pr close [PR_NUMBER] --comment "Closing: [reason]"
+```
+
+**Request changes:**
+
+```bash
+gh pr review [PR_NUMBER] --request-changes --body "[feedback]"
+```
+
+## Output Format
+
+```markdown
+## PR Triage Report
+
+**Repository:** [owner/repo]
+**Date:** [YYYY-MM-DD]
+**Open PRs:** X
+
+### Action Summary
+
+| PR   | Title         | Author      | Age | Action            |
+| ---- | ------------- | ----------- | --- | ----------------- |
+| #123 | Fix typo      | @jules      | 2d  | ✅ Merged         |
+| #124 | Add feature   | @dev        | 5d  | 👀 Needs review   |
+| #125 | Update deps   | @dependabot | 1d  | ✅ Merged         |
+| #126 | WIP: Refactor | @dev        | 14d | ❌ Closed (stale) |
+
+### Details
+
+#### PR #124: Add feature
+
+- **Status:** Needs review
+- **CI:** ✅ Passing
+- **Conflicts:** None
+- **Size:** +450/-120
+- **Recommendation:** Invoke code-review skill for detailed analysis
+
+### Next Steps
+
+1. [Action item 1]
+2. [Action item 2]
+```
+
+## Handling Jules PRs
+
+Jules-created PRs have specific patterns:
+
+| PR Type           | Identification                               | Action                           |
+| ----------------- | -------------------------------------------- | -------------------------------- |
+| Dependency update | Title contains "deps" or "dependency"        | Review changelog, merge if minor |
+| Dead code removal | Title contains "dead code" or "unused"       | Verify removals, merge           |
+| Formatting        | Title contains "format" or "lint"            | Quick verify, merge              |
+| Security fix      | Title contains "security" or "vulnerability" | Priority review and merge        |
+
+## Common Issues
+
+| Issue                       | Solution                          |
+| --------------------------- | --------------------------------- |
+| Merge conflicts on Jules PR | Rebase on main, re-push           |
+| CI failing on valid code    | Check if test is flaky, re-run    |
+| PR superseded by another    | Close older PR with reference     |
+| Author unresponsive         | Comment ping, close after 14 days |
