@@ -1,0 +1,6 @@
+template: woodhout/agentic-project-template
+version: v1.0.0
+synced: 2026-01-14
+notes: |
+  Initial template version.
+  Projects should update this file when syncing from template.

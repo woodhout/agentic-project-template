@@ -17,9 +17,35 @@ This directory contains the system prompts for each Jules persona. Each prompt i
 | **Dead Code Scanner** 🧹  | [`dead_code_scanner.md`](./dead_code_scanner.md)   | Weekly dead code detection and cleanup         |
 | **Context7 Librarian** 📚 | [`context7_librarian.md`](./context7_librarian.md) | Daily Context7 library registry sync           |
 
-## Usage
+## Automation via GitHub Actions
 
-When configuring a Jules task, copy the contents of the appropriate prompt file as the system instructions.
+Prompts are automatically scheduled via `.github/workflows/jules-schedule.yml`:
+
+| Task | Schedule | Cron |
+|------|----------|------|
+| Sentinel (security) | Daily 6 AM UTC | `0 6 * * *` |
+| Code Formatter | Sunday 7 AM UTC | `0 7 * * 0` |
+| Dependency Doctor | Monday 6 AM UTC | `0 6 * * 1` |
+| Dead Code Scanner | Wednesday 6 AM UTC | `0 6 * * 3` |
+| Test Guardian | Friday 6 AM UTC | `0 6 * * 5` |
+
+**Fire and Forget Pattern:** GitHub Actions triggers Jules CLI and exits immediately. Jules executes asynchronously.
+
+### Manual Trigger
+
+```bash
+gh workflow run jules-schedule.yml -f task=sentinel
+```
+
+### Required Secret
+
+Generate an API key at [jules.google.com/settings#api](https://jules.google.com/settings#api) and add as repository secret:
+
+```bash
+gh secret set JULES_API_KEY
+```
+
+This uses your Google AI Pro subscription.
 
 ## Updating Prompts
 
@@ -31,3 +57,4 @@ When configuring a Jules task, copy the contents of the appropriate prompt file 
 ## Version History
 
 See [`CHANGELOG.md`](./CHANGELOG.md) in this directory for the full history of prompt changes.
+

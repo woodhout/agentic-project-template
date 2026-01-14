@@ -197,6 +197,43 @@ Checklist:
 - [ ] `.env` file exists (if required)
 - [ ] Tests pass
 
+### 12. Configure Jules Automation (Required)
+
+Jules scheduled tasks run via GitHub Actions using the Jules API.
+
+**Step 1: Copy workflow from template** (if not already present)
+
+```bash
+cp template/.github/workflows/jules-schedule.yml .github/workflows/
+```
+
+**Step 2: Set the API key secret**
+
+1. Generate API key at [jules.google.com/settings#api](https://jules.google.com/settings#api)
+2. Add to repository secrets:
+
+```bash
+gh secret set JULES_API_KEY
+# Paste your API key when prompted
+```
+
+**Step 3: Verify setup**
+
+```bash
+# Check secret exists
+gh secret list | grep JULES_API_KEY
+
+# Check workflow is enabled
+gh workflow list
+
+# Test with manual trigger
+gh workflow run jules-schedule.yml -f task=sentinel
+```
+
+**Schedule:**
+- Daily: Sentinel (security scan)
+- Weekly: Code formatter, dependency doctor, dead code scanner, test guardian
+
 ## Output
 
 After setup, report:

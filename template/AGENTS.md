@@ -206,6 +206,43 @@ For complex recovery scenarios, invoke: `.agent/skills/recovery/SKILL.md`
 
 ---
 
+## 📦 Dependency Version Management
+
+### Version Tracking
+
+All pinned tool versions are tracked in [`VERSIONS.md`](VERSIONS.md):
+
+- Pre-commit hooks (ruff, mypy, detect-secrets)
+- CLI tools (gh, jq, pre-commit)
+- MCP server configurations
+
+### Update Process
+
+| Update Type | Process |
+|-------------|---------|
+| Security fix | Apply immediately, test, document |
+| Minor/patch | Apply, test, update VERSIONS.md |
+| Major version | Review changelog, test in branch, verify compatibility |
+
+### Automated Updates
+
+- **Dependabot** (`.github/dependabot.yml`) creates PRs for GitHub Actions and package updates
+- **Jules `tool_version_auditor`** checks template tooling monthly
+- **Jules `dependency_doctor`** checks runtime deps weekly
+
+### Compatibility Guidelines
+
+Before updating any tool:
+
+1. Check changelog for breaking changes
+2. Verify compatibility with related tools (see VERSIONS.md)
+3. Test with `pre-commit run --all-files` and `pytest`
+4. Update VERSIONS.md with new version and date
+
+For complex updates, invoke: `.agent/skills/update-deps/SKILL.md`
+
+---
+
 ## 💡 Project-Specific Considerations
 
 > These patterns may apply depending on your project. Uncomment and customize as needed.
