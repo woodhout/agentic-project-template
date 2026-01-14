@@ -1,6 +1,13 @@
 template: woodhout/agentic-project-template
+template_url: https://github.com/woodhout/agentic-project-template
 version: v1.0.0
 synced: 2026-01-14
 notes: |
   Initial template version.
   Projects should update this file when syncing from template.
+sync_command: |
+  # To check for template updates:
+  git remote add template git@github.com:woodhout/agentic-project-template.git
+  git fetch template main
+  # Then use /template-sync workflow to selectively merge
+

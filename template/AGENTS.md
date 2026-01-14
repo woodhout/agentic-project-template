@@ -5,7 +5,9 @@
 
 > 📋 **Quick Reference:** See [`QUICK_REFERENCE.md`](QUICK_REFERENCE.md) for collections, API routes, env vars.  
 > 🔧 **IDE Setup:** See [`.agent/IDE_CONFIG.md`](.agent/IDE_CONFIG.md) for multi-machine sync.  
-> 📚 **Patterns:** See [`patterns/`](patterns/) for cloud/framework-specific best practices.
+> 📚 **Patterns:** See [`patterns/`](patterns/) for cloud/framework-specific best practices.  
+> 🔗 **Template Origin:** This project inherits from [agentic-project-template](https://github.com/woodhout/agentic-project-template). See [`TEMPLATE_VERSION`](TEMPLATE_VERSION) for sync status.
+
 
 ---
 
