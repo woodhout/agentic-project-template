@@ -30,7 +30,20 @@ The skill will handle complete environment setup before continuing.
 
    If there are conflicts, resolve them before proceeding.
 
-2. **Sync Python dependencies**:
+2. **Check for open Pull Requests**:
+
+   ```bash
+   gh pr list --state open
+   ```
+
+   **If PRs are found:**
+   - Review the list and note any that need attention
+   - Consider running `/pr-review` for a detailed triage
+   - Prioritize security-related PRs (from Sentinel, Dependency Doctor)
+
+   **If no PRs found:** Continue to next step.
+
+3. **Sync Python dependencies**:
 
    ```bash
    source .venv/bin/activate && pip install -r requirements.txt
@@ -38,13 +51,13 @@ The skill will handle complete environment setup before continuing.
 
    Check for any version pinning changes in `requirements.txt`.
 
-3. **Sync Frontend dependencies**:
+4. **Sync Frontend dependencies**:
 
    ```bash
    npm install --prefix frontend
    ```
 
-4. **Sync MCP Configuration**:
+5. **Sync MCP Configuration**:
 
    Run the MCP sync script to generate machine-specific config:
 
@@ -54,7 +67,7 @@ The skill will handle complete environment setup before continuing.
 
    After running, refresh MCP servers: Agent panel → three dots → MCP Servers → Manage → **Refresh**
 
-5. **Sync Global IDE Rules**:
+6. **Sync Global IDE Rules**:
 
    Ensure GEMINI.md global rules are symlinked from the repo:
 
@@ -65,7 +78,7 @@ The skill will handle complete environment setup before continuing.
    This creates a symlink from `~/.gemini/GEMINI.md` → `.antigravity/GEMINI.md` in the repo.
    Changes made anywhere will be tracked in git and synced via `git pull`.
 
-// turbo 6. **Install Pre-Commit Hooks** (if not already installed):
+// turbo 7. **Install Pre-Commit Hooks** (if not already installed):
 
 ```bash
 pre-commit install
@@ -73,7 +86,7 @@ pre-commit install
 
 This enables automatic code quality checks before every commit.
 
-1. **Review MCP Servers (if needed)**:
+8. **Review MCP Servers (if needed)**:
 
    - The canonical config (`.antigravity/mcp_config.json`) includes:
      - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
@@ -81,11 +94,11 @@ This enables automatic code quality checks before every commit.
      - `markitdown` (document reading)
    - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
 
-2. **Review IDE configuration**:
+9. **Review IDE configuration**:
 
    - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
 
-3. **Verify Environment**:
+10. **Verify Environment**:
 
    - Ensure `.python-version` matches your local environment.
    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
