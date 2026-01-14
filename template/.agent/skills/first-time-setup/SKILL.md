@@ -55,7 +55,43 @@ git config user.email
 git config user.name
 ```
 
-### 2. Create Python Virtual Environment
+### 2. Verify Universal CLIs
+
+Check that required CLIs are installed (see `.agent/TOOLS.md` for full reference):
+
+```bash
+# GitHub CLI (required)
+gh --version || echo "Install: brew install gh"
+
+# JSON processor (required)
+jq --version || echo "Install: brew install jq"
+
+# Pre-commit (will be installed via pip)
+pre-commit --version || echo "Will install via pip"
+```
+
+### 3. Detect Stack-Specific CLIs
+
+Based on project files, check for stack-specific tools:
+
+```bash
+# If using GCP
+if grep -q "google-cloud" requirements.txt 2>/dev/null; then
+    gcloud --version || echo "Install: https://cloud.google.com/sdk/docs/install"
+fi
+
+# If using Docker
+if [ -f "Dockerfile" ]; then
+    docker --version || echo "Install: https://docker.com"
+fi
+
+# If using Terraform
+if [ -f "*.tf" ]; then
+    terraform --version || echo "Install: brew install terraform"
+fi
+```
+
+### 4. Create Python Virtual Environment
 
 ```bash
 python3 -m venv .venv

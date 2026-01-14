@@ -135,3 +135,43 @@ If significant work was done this session:
 - Propose any identified patterns
 - Update existing skills if refinements discovered
 ```
+
+---
+
+## Tool Evolution Check
+
+During skill evolution review, also check for tool opportunities:
+
+### CLI Assessment
+
+When new dependencies were added this session:
+
+1. **Does it have a CLI?** → Add to `.agent/TOOLS.md`
+2. **Is it needed for development?** → Add to `first-time-setup` skill
+3. **Universal or project-specific?** → Choose appropriate documentation location
+
+### MCP Assessment
+
+When a new service or API was integrated:
+
+1. **Is there an MCP server?** → Check [MCP Registry](https://github.com/modelcontextprotocol/servers)
+2. **Worth the tool budget?** → Count tools, compare to CLI alternative
+3. **If adding:** → Update `.antigravity/mcp_config.template.json` with allowlist
+
+### Tool Report
+
+When proposing skill opportunities, also include:
+
+```markdown
+## Tool Opportunities
+
+**New CLIs detected:**
+
+- [tool]: [install command]
+
+**MCP candidates:**
+
+- [server]: [# tools] — [purpose]
+
+**Recommendation:** [Add to TOOLS.md / Add MCP / Use CLI]
+```

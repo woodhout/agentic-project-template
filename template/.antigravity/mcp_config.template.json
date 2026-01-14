@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/anthropic-tools/main/schemas/mcp-servers.schema.json",
+  "_comment": "Template MCP config. Copy to ~/.gemini/mcp-servers.json and customize.",
+  "_toolBudget": "~48 tools total. Add project-specific tools as needed, but stay under ~60.",
+  "mcpServers": {
+    "github-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "__GITHUB_TOKEN__"
+      },
+      "toolFilter": {
+        "allow": [
+          "get_me",
+          "search_repositories",
+          "search_code",
+          "search_issues",
+          "search_pull_requests",
+          "get_file_contents",
+          "create_or_update_file",
+          "push_files",
+          "create_branch",
+          "list_branches",
+          "list_commits",
+          "get_commit",
+          "create_pull_request",
+          "list_pull_requests",
+          "get_pull_request",
+          "merge_pull_request",
+          "create_issue",
+          "list_issues",
+          "get_issue",
+          "add_issue_comment",
+          "create_repository",
+          "fork_repository",
+          "list_tags",
+          "get_latest_release"
+        ]
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp"],
+      "toolFilter": {
+        "allow": [
+          "browser_navigate",
+          "browser_snapshot",
+          "browser_click",
+          "browser_type",
+          "browser_hover",
+          "browser_select_option",
+          "browser_take_screenshot",
+          "browser_press_key",
+          "browser_wait_for",
+          "browser_tabs",
+          "browser_console_messages",
+          "browser_handle_dialog",
+          "browser_file_upload",
+          "browser_close"
+        ]
+      }
+    },
+    "markitdown": {
+      "command": "npx",
+      "args": ["-y", "markitdown-mcp"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp"]
+    }
+  }
+}

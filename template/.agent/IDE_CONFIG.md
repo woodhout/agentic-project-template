@@ -33,14 +33,30 @@ Run `./scripts/sync-gemini-rules.sh` to symlink to global location (`~/.gemini/G
 
 ## MCP Servers
 
-Expected MCP server configuration:
+**Config Template:** `.antigravity/mcp_config.template.json`
+**Tool Reference:** `.agent/TOOLS.md`
 
-| Server              | Purpose                                 |
-| ------------------- | --------------------------------------- |
-| `github-mcp-server` | GitHub integration (PRs, issues, repos) |
-| `playwright`        | Browser automation                      |
-| `markitdown`        | Document reading (PDF, DOCX, etc.)      |
-| `context7`          | Documentation lookup                    |
+### Included Servers (~48 tools)
+
+| Server              | Tools | Purpose                            |
+| ------------------- | ----- | ---------------------------------- |
+| `github-mcp-server` | ~25   | PRs, issues, repos, code search    |
+| `playwright`        | ~15   | Browser automation                 |
+| `markitdown`        | 1     | Document reading (PDF, DOCX, etc.) |
+| `context7`          | 2     | Documentation lookup               |
+
+### Tool Budget
+
+**Target: ~50 tools.** Each MCP tool consumes context tokens. Stay under budget to ensure fast responses and clear tool selection.
+
+### Adding New MCP Servers
+
+Before adding a new MCP server:
+
+1. **Check if CLI suffices** — Many operations work fine via command line
+2. **Count the tools** — How many does it add? Can you use an allowlist?
+3. **Update config** — Edit `.antigravity/mcp_config.template.json`
+4. **Document here** — Add to the table above
 
 ### GitHub MCP
 
