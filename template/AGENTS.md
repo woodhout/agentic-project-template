@@ -96,3 +96,146 @@ Before creating a PR:
 | Date       | Description                        | Fix                    | Prevention Rule         |
 | ---------- | ---------------------------------- | ---------------------- | ----------------------- |
 | YYYY-MM-DD | Example: Agent overwrote changelog | Documented append rule | See Rule 3: APPEND-ONLY |
+
+---
+
+## 🔀 Git Conventions
+
+### Conventional Commits
+
+Use standardized commit message prefixes for clear history:
+
+| Prefix      | Use Case                                |
+| ----------- | --------------------------------------- |
+| `feat:`     | New feature or capability               |
+| `fix:`      | Bug fix                                 |
+| `docs:`     | Documentation only changes              |
+| `refactor:` | Code change that neither fixes nor adds |
+| `test:`     | Adding or updating tests                |
+| `chore:`    | Maintenance tasks (deps, configs)       |
+| `perf:`     | Performance improvement                 |
+| `security:` | Security fix or enhancement             |
+
+**Examples:**
+
+- `feat: add user authentication endpoint`
+- `fix: resolve null pointer in job parser`
+- `docs: update API reference for v2 endpoints`
+
+### Branch Naming
+
+Use descriptive branch prefixes:
+
+| Prefix      | Use Case               |
+| ----------- | ---------------------- |
+| `feature/`  | New features           |
+| `fix/`      | Bug fixes              |
+| `refactor/` | Code restructuring     |
+| `docs/`     | Documentation updates  |
+| `chore/`    | Maintenance and config |
+
+**Examples:**
+
+- `feature/user-authentication`
+- `fix/null-pointer-job-parser`
+- `docs/api-v2-reference`
+
+---
+
+## 🔄 Rollback & Recovery
+
+### Git Recovery Commands
+
+| Situation                          | Command                                         |
+| ---------------------------------- | ----------------------------------------------- |
+| Undo last commit (keep changes)    | `git reset --soft HEAD~1`                       |
+| Undo last commit (discard changes) | `git reset --hard HEAD~1`                       |
+| Restore specific file              | `git checkout HEAD -- path/to/file`             |
+| Revert a pushed commit             | `git revert <commit-hash>`                      |
+| Abandon branch, start fresh        | `git checkout main && git branch -D bad-branch` |
+
+### When to Fix Forward vs. Abandon
+
+**Fix Forward When:**
+
+- Change is already pushed/merged
+- Fix is straightforward (< 15 min)
+- Others may have pulled the changes
+
+**Abandon Branch When:**
+
+- Approach is fundamentally wrong
+- Would require extensive rework
+- No one else has the changes
+
+### Handling Stuck Commands
+
+| Symptom                    | Action                                             |
+| -------------------------- | -------------------------------------------------- |
+| Command hangs > 60 seconds | Terminate with Ctrl+C or `send_command_input` tool |
+| Test is flaky              | Run in isolation, check for async/timing issues    |
+| Build stuck on install     | Check network, try `--verbose` flag                |
+| Agent unresponsive         | Check token limits, start fresh session            |
+
+### Recovery Skill
+
+For complex recovery scenarios, invoke: `.agent/skills/recovery/SKILL.md`
+
+---
+
+## 🔒 Security Review Triggers
+
+**Enhanced security review is required when:**
+
+| Trigger                                | Why                                 |
+| -------------------------------------- | ----------------------------------- |
+| Adding new API endpoints               | Validate input, auth, rate limiting |
+| Handling user-provided URLs            | SSRF, open redirect risks           |
+| Modifying authentication/authorization | Core security boundary              |
+| Adding environment variables           | Secrets exposure risk               |
+| File upload functionality              | Path traversal, malicious content   |
+| Database query construction            | Injection risks                     |
+
+**Minimum checks for new endpoints:**
+
+- [ ] Input validation (type, length, format)
+- [ ] Authentication required?
+- [ ] Authorization (who can access?)
+- [ ] Rate limiting applied?
+- [ ] No sensitive data in logs
+
+---
+
+## 💡 Project-Specific Considerations
+
+> These patterns may apply depending on your project. Uncomment and customize as needed.
+
+### Type Safety (Typed Languages)
+
+<!-- Uncomment if using Python, TypeScript, or other typed languages:
+**Rules:**
+- All new code must have type hints
+- Avoid `Any` type except at boundaries
+- Run type checker before commits: `mypy src/` or `tsc --noEmit`
+- Use `TypedDict` for structured dictionaries
+-->
+
+### Performance Budgets
+
+<!-- Uncomment to set performance constraints:
+| Metric                    | Budget          |
+| ------------------------- | --------------- |
+| API response time (p95)   | < 500ms         |
+| Database queries/request  | ≤ 5             |
+| Frontend bundle size      | < 500KB gzipped |
+| LLM calls per request     | ≤ 2             |
+-->
+
+### Cost Controls
+
+<!-- Uncomment if using paid APIs (LLM, cloud services):
+**Rules:**
+- Check daily spend before expensive operations
+- Implement circuit breakers for runaway costs
+- Cache expensive API responses where possible
+-->

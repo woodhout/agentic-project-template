@@ -120,16 +120,36 @@ The complete agentic development infrastructure:
 
 Skills are complex, reusable capabilities with decision trees and examples:
 
-| Skill              | Purpose                                   |
-| ------------------ | ----------------------------------------- |
-| `bootstrap`        | Create new project from Gem seed files    |
-| `jules-setup`      | Configure Jules automation via browser    |
-| `skill-evolution`  | Identify and create new skills over time  |
-| `code-review`      | Multi-model review with handoff protocol  |
-| `simplify`         | Dead code detection, refactoring guidance |
-| `pr-triage`        | Review and manage open pull requests      |
-| `first-time-setup` | New environment onboarding                |
-| `debug-tests`      | Systematic test failure diagnosis         |
+| Skill              | Purpose                                    |
+| ------------------ | ------------------------------------------ |
+| `bootstrap`        | Create new project from Gem seed files     |
+| `jules-setup`      | Configure Jules automation via browser     |
+| `skill-evolution`  | Identify and create new skills over time   |
+| `code-review`      | Multi-model review with handoff protocol   |
+| `simplify`         | Dead code detection, refactoring guidance  |
+| `pr-triage`        | Review and manage open pull requests       |
+| `first-time-setup` | New environment onboarding                 |
+| `debug-tests`      | Systematic test failure diagnosis          |
+| `recovery`         | Rollback, stuck commands, failure handling |
+
+### GitHub Templates (`template/.github/`)
+
+Ready-to-use templates for consistent collaboration:
+
+- `PULL_REQUEST_TEMPLATE.md` — Standardized PR checklist
+- `ISSUE_TEMPLATE/bug_report.md` — Bug reporting template
+- `ISSUE_TEMPLATE/feature_request.md` — Feature request template
+
+### New AGENTS.md Sections
+
+The template AGENTS.md now includes:
+
+| Section                             | Content                                                |
+| ----------------------------------- | ------------------------------------------------------ |
+| **Git Conventions**                 | Conventional commits, branch naming                    |
+| **Rollback & Recovery**             | Git recovery commands, fix-forward guidance            |
+| **Security Review Triggers**        | When to apply enhanced scrutiny                        |
+| **Project-Specific Considerations** | Type safety, performance budgets (commented templates) |
 
 ### Gem Prompts (`gem-prompts/`)
 
