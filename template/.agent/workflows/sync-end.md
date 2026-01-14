@@ -34,23 +34,30 @@ This workflow ensures your work is documented, committed, pushed, and local proc
 
    If skill opportunities are identified, propose them to the user.
 
-4. **Documentation Refresh**:
+4. **Template Feedback (if applicable)**:
+
+   If you discovered that a template workflow, skill, or pattern could be improved:
+
+   - Run `/template-feedback` workflow to add the lesson to `LESSONS_QUEUE.md`
+   - This captures improvements for review and potential sync to all projects
+
+5. **Documentation Refresh**:
 
    - Update CHANGELOG.md with a summary of today's work.
    - Update QUICK_REFERENCE.md if architecture, API, or models changed.
    - Update COMPLIANCE_LOG.md if security or dependency changes were made.
    - **If agent errors occurred**, add to AGENTS.md anti-patterns table.
 
-5. **Commit and Push**:
+6. **Commit and Push**:
 
    - Stage changes: `git add .`
    - Review changes: `git status`
    - Commit: `git commit -m "feat: session sync - [brief description]"`
    - Push: `git push origin main`
 
-6. **Optional: Redeploy**:
+7. **Optional: Redeploy**:
 
    - If changes affect the production API, run the `/deploy` workflow (if available).
 
-7. **Final Check**:
+8. **Final Check**:
    - Ensure all files are saved and artifacts are synchronized.
