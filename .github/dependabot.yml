@@ -1,8 +1,5 @@
 version: 2
 
-registries:
-  # Add private registries here if needed
-
 updates:
   # GitHub Actions
   - package-ecosystem: "github-actions"
