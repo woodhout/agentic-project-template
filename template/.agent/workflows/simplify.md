@@ -8,13 +8,13 @@ Invoke the `simplify` skill for code cleanup and refactoring.
 
 ## Quick Usage
 
-```
+```text
 Simplify the codebase
 ```
 
 Or target specific areas:
 
-```
+```text
 Look for dead code in app/
 Check for duplication in the routes
 Reduce complexity in the handlers

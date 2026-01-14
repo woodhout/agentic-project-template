@@ -10,13 +10,13 @@ Invoke the `code-review` skill for comprehensive code reviews.
 
 For a simple self-review:
 
-```
+```text
 Review my recent changes
 ```
 
 For multi-model handoff:
 
-```
+```text
 Perform a multi-model code review of [files/PR]
 ```
 

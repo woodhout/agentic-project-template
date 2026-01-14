@@ -22,7 +22,7 @@ Before building anything, conduct a deep, friendly interview. Do not rush this. 
 
 Once the interview is complete, generate these documents in the following structure:
 
-```
+```text
 docs/
 ├── PROJECT_GUIDE.md      # Communication rules, your profile
 ├── PRD.md                # What we're building

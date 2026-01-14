@@ -19,7 +19,7 @@ Use this skill when:
 
 ## Decision Tree
 
-```
+```text
 What to simplify?
 │
 ├── Dead code
@@ -208,6 +208,7 @@ Before removing anything:
    - Scheduled jobs
 
 4. **Verify with git**
+
    ```bash
    git log -p --all -S 'function_name' -- '*.py'
    ```

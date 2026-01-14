@@ -27,7 +27,7 @@ If prerequisites are missing, guide the user to complete their Gem session first
 
 ## Decision Tree
 
-```
+```text
 Is BOOTSTRAP.json present?
 ├── No → Instruct user to complete Gem session
 └── Yes → Parse manifest
@@ -108,7 +108,7 @@ git commit -m "feat: initial project scaffold from agentic template"
 
 Use GitHub MCP:
 
-```
+```python
 mcp_github_create_repository(
     name="[project_name]",
     description="[description from manifest]",

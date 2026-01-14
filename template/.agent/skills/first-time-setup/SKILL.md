@@ -21,7 +21,7 @@ Use this skill when:
 
 This skill should be invoked if ANY of these are true:
 
-```
+```text
 Environment check:
 ├── Python venv missing?
 │   └── Test: [ ! -d ".venv" ] && [ ! -d "venv" ]

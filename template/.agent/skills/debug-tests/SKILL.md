@@ -18,7 +18,7 @@ Use this skill when:
 
 ## Decision Tree
 
-```
+```text
 Test failure type?
 │
 ├── Import Error
@@ -221,8 +221,6 @@ pytest tests/ -v
 ```
 ````
 
-```
-
 ## Prevention Tips
 
 1. **Always mock external dependencies**
@@ -230,4 +228,3 @@ pytest tests/ -v
 3. **Run tests in random order periodically**
 4. **Set timeouts on potentially slow tests**
 5. **Use `pytest-xdist` to catch isolation issues**
-```

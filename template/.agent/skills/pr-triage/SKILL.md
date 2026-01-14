@@ -18,7 +18,7 @@ Use this skill when:
 
 ## Decision Tree
 
-```
+```text
 For each open PR:
 │
 ├── Is CI passing?
@@ -67,7 +67,7 @@ gh pr list --state open --json number,title,author,createdAt,updatedAt,mergeable
 
 Or use GitHub MCP:
 
-```
+```python
 mcp_github_list_pull_requests(
     owner="[owner]",
     repo="[repo]",

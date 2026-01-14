@@ -116,7 +116,7 @@ Create `SKILL.md` with:
 
 ## Skill Lifecycle
 
-```
+```text
 Observation → Proposal → User Approval → Creation → Usage → Refinement
                                                           ↓
                                               (Add to anti-patterns if issues)

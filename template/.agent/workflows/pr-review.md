@@ -8,13 +8,13 @@ Invoke the `pr-triage` skill to review and manage open pull requests.
 
 ## Quick Usage
 
-```
+```text
 Review open PRs
 ```
 
 Or be specific:
 
-```
+```text
 Check PRs from Jules
 Triage all open pull requests
 Merge safe PRs

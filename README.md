@@ -13,7 +13,7 @@ This template provides everything you need to start a new software project with 
 3. **Bootstrap** → Automatically create a fully-configured GitHub repo
 4. **Development** → AI agents build and maintain your code
 
-```
+```text
 ┌─────────────────────────┐
 │  Gemini Gems            │
 │  (Technical Co-founder) │
@@ -64,7 +64,7 @@ The Gem will guide you through questions about:
 
 When the Gem finishes, it generates these documents:
 
-```
+```text
 seeds/
 ├── docs/
 │   ├── PROJECT_GUIDE.md      # Communication rules
@@ -81,7 +81,7 @@ Save these to the `seeds/` folder in this project.
 
 In Antigravity IDE, run:
 
-```
+```bash
 /bootstrap seeds/
 ```
 
@@ -226,7 +226,7 @@ Where you save the output from your Gem session. Start empty, fill after your Ge
 
 ## Folder Structure
 
-```
+```text
 agentic-project-template/
 ├── README.md                 # This file
 ├── seeds/                    # Your Gem output goes here

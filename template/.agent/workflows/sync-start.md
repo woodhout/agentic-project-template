@@ -73,7 +73,7 @@ pre-commit install
 
 This enables automatic code quality checks before every commit.
 
-7. **Review MCP Servers (if needed)**:
+1. **Review MCP Servers (if needed)**:
 
    - The canonical config (`.antigravity/mcp_config.json`) includes:
      - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
@@ -81,11 +81,11 @@ This enables automatic code quality checks before every commit.
      - `markitdown` (document reading)
    - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
 
-8. **Review IDE configuration**:
+2. **Review IDE configuration**:
 
    - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
 
-9. **Verify Environment**:
+3. **Verify Environment**:
 
    - Ensure `.python-version` matches your local environment.
    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.

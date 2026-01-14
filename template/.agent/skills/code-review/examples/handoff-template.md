@@ -4,7 +4,7 @@ Use this template when performing multi-model code reviews.
 
 ---
 
-# Code Review Handoff
+## Code Review Handoff
 
 **Date:** [YYYY-MM-DD]
 **Reviewer 1:** [Model name]

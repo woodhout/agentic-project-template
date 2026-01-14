@@ -18,7 +18,7 @@ Use this skill when:
 
 ## Decision Tree
 
-```
+```text
 What type of review?
 ├── Self-review (single model)
 │   └── Use checklist-based review

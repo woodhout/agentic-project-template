@@ -19,7 +19,7 @@ Invoke this skill when:
 
 ## Decision Tree
 
-```
+```text
 Start
 │
 ├─ Is it a git/code issue?

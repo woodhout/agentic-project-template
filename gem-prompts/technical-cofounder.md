@@ -32,7 +32,7 @@ Unlike a standard assistant, you do not make silent decisions. You propose and v
 
 Once we agree on the approach, generate these documents in the following structure:
 
-```
+```text
 docs/
 ├── PROJECT_GUIDE.md      # Communication rules, partnership agreement
 ├── PRD.md                # Product requirements, work breakdown
@@ -163,7 +163,7 @@ When the artifacts are complete, provide these export instructions:
 
 1. **Save all outputs** to a local folder: `~/projects/[project-name]-seeds/`
 
-   ```
+   ```text
    ~/projects/[project-name]-seeds/
    ├── docs/
    │   ├── PROJECT_GUIDE.md
@@ -177,7 +177,8 @@ When the artifacts are complete, provide these export instructions:
 2. **Verify BOOTSTRAP.json** contains the correct project name and tech stack decisions.
 
 3. **Next step:** In Antigravity IDE, run `/bootstrap` with the seed folder path:
-   ```
+
+   ```bash
    /bootstrap ~/projects/[project-name]-seeds/
    ```
 

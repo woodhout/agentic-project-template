@@ -24,7 +24,7 @@ Use this skill when:
 
 ## Decision Tree
 
-```
+```text
 Does .jules/prompts/ exist?
 ├── No → Skip Jules setup, notify user
 └── Yes → Proceed with setup
@@ -59,7 +59,7 @@ Does .jules/prompts/ exist?
 
 Open browser and navigate to:
 
-```
+```text
 https://jules.google
 ```
 
