@@ -67,14 +67,18 @@ Install based on your project's tech stack:
 
 Base configuration in `.antigravity/mcp_config.template.json`.
 
-### Included Servers (~48 tools)
+### Included Servers (~35 tools)
 
-| Server              | Tools | Purpose                         |
-| ------------------- | ----- | ------------------------------- |
-| `github-mcp-server` | ~25   | PRs, issues, repos, code search |
-| `playwright`        | ~15   | Browser automation              |
-| `markitdown`        | 1     | Document conversion (PDF, DOCX) |
-| `context7`          | 2     | Documentation lookup            |
+| Server              | Tools | Purpose                            |
+| ------------------- | ----- | ---------------------------------- |
+| `github-mcp-server` | ~17   | PRs, issues, repos (write ops)     |
+| `playwright`        | ~14   | Browser automation                 |
+| `markitdown`        | 1     | Document conversion (PDF, DOCX)    |
+| `context7`          | 2     | Documentation lookup               |
+
+> [!TIP]
+> **CLI for reads, MCP for writes.** Use `gh pr list`, `gh issue list`, `git log`
+> for listings (compact output). Use MCP for creating/updating PRs, issues, files.
 
 ### Tool Budget
 
