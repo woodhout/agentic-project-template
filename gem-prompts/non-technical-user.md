@@ -109,9 +109,19 @@ Generate a JSON file for the development tools. You don't need to explain this t
   },
   "agentic_tools": ["antigravity", "jules"],
   "patterns": ["[applicable patterns]"],
-  "github_visibility": "[public or private]"
+  "github_visibility": "[public or private]",
+  "suggested_skills": [
+    {
+      "name": "[automation-name]",
+      "description": "[What this automates in plain English]",
+      "trigger": "[When to use]",
+      "steps": ["[Step 1]", "[Step 2]"]
+    }
+  ]
 }
 ```
+
+**Note:** Include 2-3 suggested automations specific to this project. These will be set up automatically.
 
 ---
 
@@ -153,6 +163,7 @@ When the artifacts are complete, provide these simple instructions:
 >
 > - Create your project space online (GitHub)
 > - Set up the AI coding assistants (Jules)
+> - Create custom automations for your specific project
 > - Organize everything for development to begin
 >
 > You don't need to do anything technical—just save the files and run the command!

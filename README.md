@@ -28,7 +28,7 @@ This template provides everything you need to start a new software project with 
 │  │   └── ARCHITECTURE.md│
 │  └── BOOTSTRAP.json     │
 └───────────┬─────────────┘
-            │ /bootstrap workflow
+            │ bootstrap skill
             ▼
 ┌─────────────────────────┐
 │  New GitHub Repo        │
@@ -91,7 +91,8 @@ This will:
 2. Copy the agentic template into it
 3. Integrate your seed documents
 4. Configure Jules automation
-5. Push initial commit
+5. **Create project-specific skills from your suggestions**
+6. Push initial commit
 
 ### Step 5: Start Building
 
@@ -107,10 +108,11 @@ The complete agentic development infrastructure:
 
 | Category         | Files                                                       |
 | ---------------- | ----------------------------------------------------------- |
-| **Core**         | AGENTS.md, QUICK_REFERENCE.md, README.md                    |
+| **Core**         | AGENTS.md, QUICK_REFERENCE.md                               |
 | **Pre-commit**   | .pre-commit-config.yaml, .secrets.baseline                  |
 | **Global Rules** | .antigravity/GEMINI.md, scripts/sync-gemini-rules.sh        |
 | **Workflows**    | 10 universal workflows (sync-start, sync-end, review, etc.) |
+| **Skills**       | bootstrap, jules-setup, skill-evolution                     |
 | **Jules**        | 12 automation prompts (sentinel, dependency-doctor, etc.)   |
 | **Patterns**     | GCP.md, LLM_APPS.md, EXAMPLES.md                            |
 

@@ -114,11 +114,25 @@ Generate a JSON file that summarizes project metadata for automated tooling:
   },
   "agentic_tools": ["antigravity", "jules"],
   "patterns": ["[e.g., GCP, LLM_APPS, or empty array]"],
-  "github_visibility": "[public or private]"
+  "github_visibility": "[public or private]",
+  "suggested_skills": [
+    {
+      "name": "[skill-name]",
+      "description": "[What this skill automates]",
+      "trigger": "[When to use this skill]",
+      "steps": ["[Step 1]", "[Step 2]", "..."]
+    }
+  ]
 }
 ```
 
 **Note:** Replace all bracketed values with actual decisions from Phase 2.
+
+**Suggested Skills:** Based on the project's unique workflows, propose 2-3 project-specific skills that would benefit from automation. Examples:
+
+- A deployment skill for the specific hosting platform
+- A data migration skill if the project involves database changes
+- An integration testing skill for external API dependencies
 
 ---
 
@@ -167,12 +181,13 @@ When the artifacts are complete, provide these export instructions:
    /bootstrap ~/projects/[project-name]-seeds/
    ```
 
-The `/bootstrap` workflow will:
+The `/bootstrap` skill will:
 
 - Create a GitHub repository with your project name
 - Apply the agentic development template with your artifacts
 - Configure Jules automation for continuous improvement
 - Generate an initial task list from the PRD
+- Create project-specific skills from your `suggested_skills`
 
 ---
 
