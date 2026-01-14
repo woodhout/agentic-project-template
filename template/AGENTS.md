@@ -243,6 +243,29 @@ For complex updates, invoke: `.agent/skills/update-deps/SKILL.md`
 
 ---
 
+## 🛠️ Skills Architecture
+
+**Context:** Skills are reusable, complex procedures stored in `.agent/skills/`. They extend workflows by providing decision trees, checklists, and multi-step processes.
+
+**Available Skills:**
+
+| Skill              | Purpose                                       |
+| ------------------ | --------------------------------------------- |
+| `bootstrap`        | Create new project from seeds                 |
+| `code-review`      | Multi-model code review with handoff protocol |
+| `simplify`         | Dead code detection and refactoring guidance  |
+| `pr-triage`        | Review open PRs and recommend action          |
+| `first-time-setup` | New environment onboarding checklist          |
+| `debug-tests`      | Systematic test failure diagnosis             |
+| `skill-evolution`  | Identify opportunities for new skills         |
+| `update-deps`      | Dependency updates with compatibility checks  |
+| `template-sync`    | Propagate template updates to this project    |
+| `recovery`         | Handle failures, rollbacks, stuck situations  |
+
+**Usage:** View a skill with `view_file .agent/skills/<skill-name>/SKILL.md` before using it. Workflows (e.g., `/review`, `/recover`) invoke these automatically.
+
+---
+
 ## 💡 Project-Specific Considerations
 
 > These patterns may apply depending on your project. Uncomment and customize as needed.

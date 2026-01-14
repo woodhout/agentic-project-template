@@ -123,9 +123,9 @@ git remote add origin git@github.com:[username]/[project_name].git
 git push -u origin main
 ```
 
-### 9. Run Jules Setup Skill
+### 9. Configure Jules Automation
 
-After pushing, invoke the `jules-setup` skill to configure automation.
+After pushing, follow the instructions in **Step 12** of `first-time-setup` skill to set up Jules via GitHub Actions and the Jules API.
 
 ### 9b. Create Suggested Skills
 
@@ -193,7 +193,9 @@ Notify user with:
 
 - GitHub repository URL
 - Local project path
-- Jules configuration status (from jules-setup skill)
+- GitHub repository URL
+- Local project path
+- Jules API key configuration status
 - Project-specific skills created
 - Next steps
 
@@ -203,7 +205,7 @@ After successful bootstrap:
 
 - New GitHub repository created
 - Local project at `~/dev/personal/[project_name]/`
-- Jules automation configured
+- Jules automation configured (via API)
 - Initial task list ready
 
 ## Common Issues

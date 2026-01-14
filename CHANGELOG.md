@@ -26,8 +26,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `.agent/workflows/template-sync.md` — Workflow to invoke sync skill
   - `TEMPLATE_VERSION` — Version tracking file for downstream projects
 - Added Jules GitHub Actions scheduler:
-  - `.github/workflows/jules-schedule.yml` — Fire-and-forget pattern for automated Jules tasks
-  - Updated `.jules/prompts/README.md` with schedule table and manual trigger
+  - `.github/workflows/jules-schedule.yml` — Fire- Add jules-schedule.yml for automated Jules tasks via API
+- Update first-time-setup with Jules API key setup
+- Update AGENTS.md with Git, Rollback, Security, and Skills sections
+- Add update-deps and recover workflows
+- Clean up obsolete jules-setup skill
+- Update QUICK_REFERENCE.md with key tracking files (VERSIONS.md)
+- Update bootstrap skill for new automation setup flow
   - Updated `first-time-setup` skill with Jules automation step
 
 - Added `/bootstrap` workflow to automate project creation from Gem seed files.

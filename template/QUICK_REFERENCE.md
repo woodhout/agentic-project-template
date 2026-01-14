@@ -46,6 +46,7 @@
 | ----------------- | -------- | -------------------------- |
 | `DATABASE_URL`    | Yes      | Database connection string |
 | `API_KEY`         | Yes      | API authentication key     |
+| `JULES_API_KEY`   | Yes      | Jules API key for automation |
 | `[add your vars]` |          |                            |
 
 ---
@@ -56,6 +57,7 @@
 | ----------------- | ----------------------- |
 | `app/main.py`     | Application entry point |
 | `app/routes.py`   | API route definitions   |
+| `VERSIONS.md`     | Tooling version tracking |
 | `[add key files]` |                         |
 
 ---
