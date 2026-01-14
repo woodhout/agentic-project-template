@@ -1,5 +1,9 @@
 # The Agentic Protocol: Technical Deep Dive
 
+![The Agentic Protocol: System Lifecycle](agentic_protocol_v1.png)
+
+![The Agentic Protocol: System Lifecycle (Alternate)](agentic_protocol_v2.png)
+
 ## Introduction
 
 This document describes the architectural philosophy and implementation of the **Agentic Development System**. It is designed to enable a "Symbiotic Development" pattern where human developers and AI agents collaborate within a governed, automated, and self-maintaining environment.

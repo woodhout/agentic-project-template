@@ -1,5 +1,7 @@
 # Developer Job Aid: Agentic Workflow
 
+![Developer Job Aid: Daily Operational Flow](developer_job_aid.png)
+
 ## 🚀 Daily Development Flow
 
 Always use these workflows to maintain environmental synchronization.

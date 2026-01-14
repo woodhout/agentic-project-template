@@ -1,5 +1,7 @@
 # Architecture Decisions (ADRs)
 
+![Architecture Decision Records: The Rationale](architecture_decisions.png)
+
 This document records the engineering rationales for the core design choices in this agentic infrastructure.
 
 ---
