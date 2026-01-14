@@ -8,17 +8,19 @@
 
 Required for all projects using this template:
 
-| CLI          | Purpose           | Install                  |
-| ------------ | ----------------- | ------------------------ |
-| `gh`         | GitHub operations | `brew install gh`        |
-| `jq`         | JSON processing   | `brew install jq`        |
-| `pre-commit` | Git hooks         | `pip install pre-commit` |
-| `ruff`       | Python linting    | `pip install ruff`       |
+| CLI          | Purpose               | Install                                            |
+| ------------ | --------------------- | -------------------------------------------------- |
+| `gh`         | GitHub operations     | `brew install gh`                                  |
+| `jules`      | Async AI coding agent | [jules.google](https://jules.google) → Install CLI |
+| `jq`         | JSON processing       | `brew install jq`                                  |
+| `pre-commit` | Git hooks             | `pip install pre-commit`                           |
+| `ruff`       | Python linting        | `pip install ruff`                                 |
 
 ### Verify Installation
 
 ```bash
 gh --version
+jules --version
 jq --version
 pre-commit --version
 ruff --version
