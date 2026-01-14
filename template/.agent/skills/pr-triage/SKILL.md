@@ -61,11 +61,17 @@ For each open PR:
 
 ### Step 1: Fetch Open PRs
 
+> [!TIP]
+> **Prefer CLI over MCP for listing PRs.** The `gh` CLI returns compact output, while
+> GitHub MCP returns verbose JSON that can truncate context when there are 6+ PRs.
+
 ```bash
+# Preferred: CLI (compact output)
 gh pr list --state open --json number,title,author,createdAt,updatedAt,mergeable,statusCheckRollup
 ```
 
-Or use GitHub MCP:
+Use GitHub MCP only when you need to perform actions (merge, comment, etc.) or
+when there are few PRs and you need the full object data:
 
 ```python
 mcp_github_list_pull_requests(

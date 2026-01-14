@@ -15,20 +15,7 @@
 
 <!-- Add new lessons at the top of this section -->
 
-### 2026-01-14: Prefer CLI over MCP for verbose APIs
-
-**Source:** resume-tailoring-agentic-system
-**Category:** Workflow
-**Affected:** `.agent/workflows/pr-review.md`
-
-**Problem:**
-The initial MCP API response truncated 6+ PRs due to verbose JSON.
-
-**Proposed Fix:**
-`/pr-review` should use `gh pr list` CLI which returns minimal output.
-
-**Rationale:**
-CLI tools provide concise output optimized for terminal use, while MCP/API responses include full JSON payloads that can exceed context windows.
+_No pending lessons._
 
 ---
 
@@ -49,4 +36,16 @@ When reviewing lessons, consider:
 
 <!-- Move resolved entries here with resolution notes -->
 
-_No resolved entries yet._
+### 2026-01-14: Prefer CLI over MCP for verbose APIs ✅
+
+**Source:** resume-tailoring-agentic-system
+**Category:** Skill
+**Affected:** `.agent/skills/pr-triage/SKILL.md`
+
+**Problem:**
+The initial MCP API response truncated 6+ PRs due to verbose JSON.
+
+**Resolution:**
+Updated pr-triage skill to recommend `gh pr list` CLI as the primary approach,
+with a tip explaining when to use CLI vs MCP. MCP is still available for actions
+and when full object data is needed.
