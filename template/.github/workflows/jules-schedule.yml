@@ -16,16 +16,24 @@ name: Jules Scheduled Tasks
 
 on:
   schedule:
-    # Security scan - Daily at 6 AM UTC
-    - cron: "0 6 * * *"
-    # Code formatting - Weekly on Sunday at 7 AM UTC
-    - cron: "0 7 * * 0"
-    # Dependency check - Weekly on Monday at 6 AM UTC
-    - cron: "0 6 * * 1"
-    # Dead code scan - Weekly on Wednesday at 6 AM UTC
-    - cron: "0 6 * * 3"
-    # Test coverage - Weekly on Friday at 6 AM UTC
-    - cron: "0 6 * * 5"
+    # === ALL TIMES ARE UTC (CST = UTC-6) ===
+    # Schedule designed so all tasks complete before 8 AM CST
+    #
+    # DAILY (every day at 6:00 AM UTC / midnight CST)
+    - cron: "0 6 * * *" # sentinel
+
+    # WEEKLY (one task per day, 6:15 AM UTC / 12:15 AM CST)
+    - cron: "15 6 * * 0" # Sunday: code_formatter
+    - cron: "15 6 * * 1" # Monday: dependency_doctor
+    - cron: "15 6 * * 2" # Tuesday: analytics_auditor
+    - cron: "15 6 * * 3" # Wednesday: dead_code_scanner
+    - cron: "15 6 * * 4" # Thursday: context7_librarian
+    - cron: "30 6 * * 4" # Thursday: compliance_auditor (2nd task)
+    - cron: "15 6 * * 5" # Friday: test_guardian
+    - cron: "15 6 * * 6" # Saturday: context_sync
+
+    # MONTHLY (1st of month at 6:45 AM UTC / 12:45 AM CST)
+    - cron: "45 6 1 * *" # tool_version_auditor
 
   # Allow manual trigger for testing
   workflow_dispatch:
@@ -38,10 +46,13 @@ on:
           - sentinel
           - code_formatter
           - dependency_doctor
+          - analytics_auditor
           - dead_code_scanner
-          - test_guardian
+          - context7_librarian
           - compliance_auditor
+          - test_guardian
           - context_sync
+          - tool_version_auditor
           - bolt
 
 jobs:
@@ -59,18 +70,33 @@ jobs:
           else
             # Determine task from cron schedule
             HOUR=$(date -u +%H)
-            DAY=$(date -u +%u)  # 1=Monday, 7=Sunday
-            
-            if [ "$DAY" == "7" ] && [ "$HOUR" == "07" ]; then
+            MINUTE=$(date -u +%M)
+            DAY=$(date -u +%u)      # 1=Monday, 7=Sunday
+            DAY_OF_MONTH=$(date -u +%d)
+
+            # Monthly task (1st of month at 6:45)
+            if [ "$DAY_OF_MONTH" == "01" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "45" ]; then
+              echo "task=tool_version_auditor" >> $GITHUB_OUTPUT
+            # Thursday has two tasks - check minute to differentiate
+            elif [ "$DAY" == "4" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "30" ]; then
+              echo "task=compliance_auditor" >> $GITHUB_OUTPUT
+            elif [ "$DAY" == "4" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
+              echo "task=context7_librarian" >> $GITHUB_OUTPUT
+            # Weekly tasks (6:15 AM UTC)
+            elif [ "$DAY" == "7" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
               echo "task=code_formatter" >> $GITHUB_OUTPUT
-            elif [ "$DAY" == "1" ] && [ "$HOUR" == "06" ]; then
+            elif [ "$DAY" == "1" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
               echo "task=dependency_doctor" >> $GITHUB_OUTPUT
-            elif [ "$DAY" == "3" ] && [ "$HOUR" == "06" ]; then
+            elif [ "$DAY" == "2" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
+              echo "task=analytics_auditor" >> $GITHUB_OUTPUT
+            elif [ "$DAY" == "3" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
               echo "task=dead_code_scanner" >> $GITHUB_OUTPUT
-            elif [ "$DAY" == "5" ] && [ "$HOUR" == "06" ]; then
+            elif [ "$DAY" == "5" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
               echo "task=test_guardian" >> $GITHUB_OUTPUT
+            elif [ "$DAY" == "6" ] && [ "$HOUR" == "06" ] && [ "$MINUTE" -ge "15" ]; then
+              echo "task=context_sync" >> $GITHUB_OUTPUT
             else
-              # Default daily task
+              # Default: daily sentinel (6:00 AM UTC)
               echo "task=sentinel" >> $GITHUB_OUTPUT
             fi
           fi

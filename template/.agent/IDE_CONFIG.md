@@ -69,17 +69,21 @@ Requires `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable with scopes:
 
 ## Jules Configuration
 
-Automated tasks via [jules.google](https://jules.google):
+Automated tasks via [jules.google](https://jules.google). All tasks run between midnight-1 AM CST.
 
-| Task               | Schedule   | Prompt                                 |
-| ------------------ | ---------- | -------------------------------------- |
-| Sentinel           | Continuous | `.jules/prompts/sentinel.md`           |
-| Dependency Doctor  | Weekly     | `.jules/prompts/dependency_doctor.md`  |
-| Dead Code Scanner  | Weekly     | `.jules/prompts/dead_code_scanner.md`  |
-| Code Formatter     | Weekly     | `.jules/prompts/code_formatter.md`     |
-| Test Guardian      | Weekly     | `.jules/prompts/test_guardian.md`      |
-| Context Sync       | Weekly     | `.jules/prompts/context_sync.md`       |
-| Compliance Auditor | Weekly     | `.jules/prompts/compliance_auditor.md` |
+| Task                 | Schedule          | Prompt                                   |
+| -------------------- | ----------------- | ---------------------------------------- |
+| Sentinel             | Daily             | `.jules/prompts/sentinel.md`             |
+| Code Formatter       | Weekly (Sun)      | `.jules/prompts/code_formatter.md`       |
+| Dependency Doctor    | Weekly (Mon)      | `.jules/prompts/dependency_doctor.md`    |
+| Analytics Auditor    | Weekly (Tue)      | `.jules/prompts/analytics_auditor.md`    |
+| Dead Code Scanner    | Weekly (Wed)      | `.jules/prompts/dead_code_scanner.md`    |
+| Context7 Librarian   | Weekly (Thu)      | `.jules/prompts/context7_librarian.md`   |
+| Compliance Auditor   | Weekly (Thu)      | `.jules/prompts/compliance_auditor.md`   |
+| Test Guardian        | Weekly (Fri)      | `.jules/prompts/test_guardian.md`        |
+| Context Sync         | Weekly (Sat)      | `.jules/prompts/context_sync.md`         |
+| Tool Version Auditor | Monthly (1st)     | `.jules/prompts/tool_version_auditor.md` |
+| Bolt                 | Manual only       | `.jules/prompts/bolt.md`                 |
 
 ---
 

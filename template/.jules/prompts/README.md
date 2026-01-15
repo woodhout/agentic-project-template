@@ -21,15 +21,20 @@ This directory contains the system prompts for each Jules persona. Each prompt i
 
 Prompts are automatically scheduled via `.github/workflows/jules-schedule.yml`:
 
-| Task | Schedule | Cron |
-|------|----------|------|
-| Sentinel (security) | Daily 6 AM UTC | `0 6 * * *` |
-| Code Formatter | Sunday 7 AM UTC | `0 7 * * 0` |
-| Dependency Doctor | Monday 6 AM UTC | `0 6 * * 1` |
-| Dead Code Scanner | Wednesday 6 AM UTC | `0 6 * * 3` |
-| Test Guardian | Friday 6 AM UTC | `0 6 * * 5` |
+| Task | Day | Time (UTC) | Time (CST) |
+|------|-----|------------|------------|
+| **Sentinel** (security) | Daily | 6:00 AM | 12:00 AM |
+| **Code Formatter** | Sunday | 6:15 AM | 12:15 AM |
+| **Dependency Doctor** | Monday | 6:15 AM | 12:15 AM |
+| **Analytics Auditor** | Tuesday | 6:15 AM | 12:15 AM |
+| **Dead Code Scanner** | Wednesday | 6:15 AM | 12:15 AM |
+| **Context7 Librarian** | Thursday | 6:15 AM | 12:15 AM |
+| **Compliance Auditor** | Thursday | 6:30 AM | 12:30 AM |
+| **Test Guardian** | Friday | 6:15 AM | 12:15 AM |
+| **Context Sync** | Saturday | 6:15 AM | 12:15 AM |
+| **Tool Version Auditor** | 1st of Month | 6:45 AM | 12:45 AM |
 
-**Fire and Forget Pattern:** GitHub Actions triggers Jules CLI and exits immediately. Jules executes asynchronously.
+**Fire and Forget Pattern:** GitHub Actions triggers Jules API and exits immediately. Jules executes asynchronously.
 
 ### Manual Trigger
 
