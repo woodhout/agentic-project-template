@@ -99,14 +99,33 @@ Run manually: `pre-commit run --all-files`
 
 ---
 
-## VS Code Extensions
+## VS Code Configuration
 
-Recommended extensions in `.vscode/extensions.json`:
+**Settings:** `.vscode/settings.json`
+**Extensions:** `.vscode/extensions.json`
 
-- Python language support
-- Markdown linting
-- YAML validation
-- GitLens
+### Formatters
+
+| File Type        | Formatter | Linter                |
+| ---------------- | --------- | --------------------- |
+| Markdown (`.md`) | Prettier  | markdownlint          |
+| Python (`.py`)   | Ruff      | Ruff                  |
+| JSON/JSONC       | Prettier  | —                     |
+| YAML             | Prettier  | YAML extension schema |
+
+> **Note:** `markdownlint` is for **linting** (style warnings), not formatting. Use **Prettier** as the default formatter for Markdown files.
+
+### Recommended Extensions
+
+| Extension                        | Purpose                 |
+| -------------------------------- | ----------------------- |
+| `esbenp.prettier-vscode`         | Format MD, JSON, YAML   |
+| `DavidAnson.vscode-markdownlint` | Markdown linting        |
+| `charliermarsh.ruff`             | Python format + lint    |
+| `ms-python.python`               | Python language support |
+| `redhat.vscode-yaml`             | YAML validation         |
+| `eamodio.gitlens`                | Git blame and history   |
+| `EditorConfig.EditorConfig`      | Cross-editor settings   |
 
 ---
 
