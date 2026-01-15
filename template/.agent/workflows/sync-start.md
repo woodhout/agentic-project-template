@@ -30,7 +30,20 @@ The skill will handle complete environment setup before continuing.
 
    If there are conflicts, resolve them before proceeding.
 
-2. **Check for open Pull Requests**:
+2. **Sync from template** (if `TEMPLATE_VERSION` exists):
+
+   ```bash
+   git fetch template main 2>/dev/null || echo "Template remote not configured"
+   ```
+
+   **If template remote exists:**
+   - Check for updates: `git log --oneline $(grep synced TEMPLATE_VERSION | cut -d: -f2 | tr -d ' ')..template/main -- template/`
+   - If updates found, run `/template-sync` to apply (skill handles skipping inapplicable items)
+   - If no updates, continue
+
+   **If no `TEMPLATE_VERSION` file:** Skip this step (project not using template sync).
+
+3. **Check for open Pull Requests**:
 
    ```bash
    gh pr list --state open
@@ -46,7 +59,7 @@ The skill will handle complete environment setup before continuing.
 
    **If no PRs found:** Continue to next step.
 
-3. **Sync Python dependencies**:
+4. **Sync Python dependencies**:
 
    ```bash
    source .venv/bin/activate && pip install -r requirements.txt
@@ -54,13 +67,13 @@ The skill will handle complete environment setup before continuing.
 
    Check for any version pinning changes in `requirements.txt`.
 
-4. **Sync Frontend dependencies**:
+5. **Sync Frontend dependencies**:
 
    ```bash
    npm install --prefix frontend
    ```
 
-5. **Sync MCP Configuration**:
+6. **Sync MCP Configuration**:
 
    Run the MCP sync script to generate machine-specific config:
 
@@ -70,7 +83,7 @@ The skill will handle complete environment setup before continuing.
 
    After running, refresh MCP servers: Agent panel → three dots → MCP Servers → Manage → **Refresh**
 
-6. **Sync Global IDE Rules**:
+7. **Sync Global IDE Rules**:
 
    Ensure GEMINI.md global rules are symlinked from the repo:
 
@@ -81,7 +94,7 @@ The skill will handle complete environment setup before continuing.
    This creates a symlink from `~/.gemini/GEMINI.md` → `.antigravity/GEMINI.md` in the repo.
    Changes made anywhere will be tracked in git and synced via `git pull`.
 
-// turbo 7. **Install Pre-Commit Hooks** (if not already installed):
+// turbo 8. **Install Pre-Commit Hooks** (if not already installed):
 
 ```bash
 pre-commit install
@@ -89,7 +102,7 @@ pre-commit install
 
 This enables automatic code quality checks before every commit.
 
-8. **Review MCP Servers (if needed)**:
+9. **Review MCP Servers (if needed)**:
 
    - The canonical config (`.antigravity/mcp_config.json`) includes:
      - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
@@ -97,11 +110,11 @@ This enables automatic code quality checks before every commit.
      - `markitdown` (document reading)
    - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
 
-9. **Review IDE configuration**:
+10. **Review IDE configuration**:
 
    - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
 
-10. **Verify Environment**:
+11. **Verify Environment**:
 
    - Ensure `.python-version` matches your local environment.
    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
