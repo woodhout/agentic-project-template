@@ -137,4 +137,4 @@ Ensure these are configured on each machine:
 2. **Node.js**: Match `.nvmrc` or `package.json` engines
 3. **Git hooks**: Run `pre-commit install`
 4. **Global rules**: Run `./scripts/sync-gemini-rules.sh`
-5. **MCP servers**: Refresh after pulling config changes
+5. **MCP servers**: Run `./scripts/sync-mcp-config.sh` then Refresh

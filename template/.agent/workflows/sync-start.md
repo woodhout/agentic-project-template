@@ -37,9 +37,12 @@ The skill will handle complete environment setup before continuing.
    ```
 
    **If PRs are found:**
-   - Review the list and note any that need attention
-   - Consider running `/pr-review` for a detailed triage
-   - Prioritize security-related PRs (from Sentinel, Dependency Doctor)
+   - List them briefly (title, author, age)
+   - **Run `/pr-review` if:**
+     - Security-related PRs exist (Sentinel, Dependabot)
+     - PRs are stale (>7 days old)
+     - User has time to act on them now
+   - Otherwise, note them for later and continue
 
    **If no PRs found:** Continue to next step.
 

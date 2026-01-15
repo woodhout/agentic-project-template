@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Improved `/sync-start` workflow PR guidance—now specifies when to run `/pr-review` (security PRs, stale PRs, or when user has time to act).
+
 ### Added
-
-- Executed `/sync-end` workflow to document and wrap up the session.
-- Verified server shutdown and process cleanup.
-
-## [Unreleased]
+- Created `template/scripts/sync-mcp-config.sh` to automate MCP server configuration synchronization with automatic GitHub token substitution.
+- Updated `template/.agent/IDE_CONFIG.md` to include MCP sync in the environment setup checklist.
 
 ### Fixed
 
