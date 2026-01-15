@@ -118,3 +118,16 @@ This enables automatic code quality checks before every commit.
 
    - Ensure `.python-version` matches your local environment.
    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
+
+12. **Check for Untracked Critical Files**:
+
+   ```bash
+   git status --porcelain | grep -E '^\?\? (scripts/|\.antigravity/|frontend/|tests/)' || true
+   ```
+
+   **If untracked critical directories are found:**
+   - Warn that `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not tracked
+   - Recommend running `/push` to commit infrastructure files
+   - These directories should typically be in version control
+
+   **If no untracked critical files:** Environment is fully synchronized ✅

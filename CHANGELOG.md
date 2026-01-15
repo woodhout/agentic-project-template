@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Improved `/sync-start` workflow PR guidance—now specifies when to run `/pr-review` (security PRs, stale PRs, or when user has time to act).
 - Integrated `/template-sync` into `/sync-start`—downstream projects now automatically check for and apply template updates during session start.
+- Added untracked critical files check to `/sync-start`—warns if `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not committed.
 
 ### Added
 - Created `template/scripts/sync-mcp-config.sh` to automate MCP server configuration synchronization with automatic GitHub token substitution.
