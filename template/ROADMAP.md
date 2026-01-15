@@ -14,6 +14,20 @@
 
 ## Planned Items
 
+### 🔴 Automate Bootstrap from Gem Seeds
+
+**Priority:** High
+**Category:** Infrastructure/Automation
+
+Research and implement a process to automatically create project scaffolding and run setup using output files from a Gemini Gem as seed data.
+
+**Key Requirements:**
+- Define standard Gem output format for seeding
+- Update `bootstrap` skill to parse Gem-generated files
+- Automate repository initialization and initial `sync-start`
+
+---
+
 ### ✅ Conventional Commits
 
 **Priority:** Low
