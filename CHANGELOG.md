@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `template/ROADMAP.md` — Template for tracking planned features with status legend and format guide.
+
 ### Changed
 - Improved `/sync-start` workflow PR guidance—now specifies when to run `/pr-review` (security PRs, stale PRs, or when user has time to act).
 - Integrated `/template-sync` into `/sync-start`—downstream projects now automatically check for and apply template updates during session start.
