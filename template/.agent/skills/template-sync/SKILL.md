@@ -143,6 +143,7 @@ Start
 | Workflows | ⚠️ Check for customization | `.agent/workflows/` |
 | Jules prompts | ✅ Yes | `.jules/prompts/` |
 | Patterns | ✅ Yes | `patterns/` |
+| GitHub templates | ✅ Yes | `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md` |
 | Pre-commit config | ⚠️ Check versions | `.pre-commit-config.yaml` |
 | AGENTS.md | ❌ Merge manually | `AGENTS.md` |
 
