@@ -16,6 +16,9 @@
     // Git
     "eamodio.gitlens",
 
+    // GitHub Actions (visibility into Jules workflows)
+    "github.vscode-github-actions",
+
     // General
     "EditorConfig.EditorConfig"
   ]

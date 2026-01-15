@@ -121,15 +121,16 @@ Run manually: `pre-commit run --all-files`
 
 ### Recommended Extensions
 
-| Extension                        | Purpose                 |
-| -------------------------------- | ----------------------- |
-| `esbenp.prettier-vscode`         | Format MD, JSON, YAML   |
-| `DavidAnson.vscode-markdownlint` | Markdown linting        |
-| `charliermarsh.ruff`             | Python format + lint    |
-| `ms-python.python`               | Python language support |
-| `redhat.vscode-yaml`             | YAML validation         |
-| `eamodio.gitlens`                | Git blame and history   |
-| `EditorConfig.EditorConfig`      | Cross-editor settings   |
+| Extension                        | Purpose                    |
+| -------------------------------- | -------------------------- |
+| `esbenp.prettier-vscode`         | Format MD, JSON, YAML      |
+| `DavidAnson.vscode-markdownlint` | Markdown linting           |
+| `charliermarsh.ruff`             | Python format + lint       |
+| `ms-python.python`               | Python language support    |
+| `redhat.vscode-yaml`             | YAML validation            |
+| `eamodio.gitlens`                | Git blame and history      |
+| `github.vscode-github-actions`   | GHA workflow visibility    |
+| `EditorConfig.EditorConfig`      | Cross-editor settings      |
 
 ---
 
