@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enhanced `pr-triage` skill with user approval checkpoint (Step 3) before taking any actions.
+- Enhanced `pr-triage` skill with finalize step (Step 6) to commit and push local changes made during review.
+
 ### Added
 
 - Added `template/ROADMAP.md` — Template for tracking planned features with status legend and format guide.

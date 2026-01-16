@@ -90,7 +90,32 @@ mcp_github_list_pull_requests(
 | **Full review**  | Large diff, new feature             | Invoke code-review skill |
 | **Blocked**      | Failing CI, conflicts, stale        | Diagnose and resolve     |
 
-### Step 3: For Each PR
+### Step 3: Present Summary and Wait for Approval
+
+> [!IMPORTANT]
+> **Always pause for user review before taking any actions.** Present the triage
+> summary and recommended actions, then wait for explicit user approval before
+> merging, closing, or modifying any PRs.
+
+Generate the summary report (see Output Format below) and present it to the user.
+Use `notify_user` with `BlockedOnUser=true` to request approval:
+
+```text
+I've analyzed [X] open PRs. Here's my triage summary:
+
+[Summary table]
+
+Recommended actions:
+1. Merge #123 (bot PR, CI passing)
+2. Request review for #124 (large feature)
+3. Close #125 (stale, 14+ days)
+
+Shall I proceed with these actions?
+```
+
+**Only proceed to Step 4 after receiving explicit user approval.**
+
+### Step 4: For Each PR
 
 **Check CI Status:**
 
@@ -110,7 +135,7 @@ gh pr view [PR_NUMBER] --json mergeable
 gh pr diff [PR_NUMBER]
 ```
 
-### Step 4: Take Action
+### Step 5: Take Action
 
 **Merge:**
 
@@ -192,3 +217,33 @@ Jules-created PRs have specific patterns:
 | CI failing on valid code    | Check if test is flaky, re-run    |
 | PR superseded by another    | Close older PR with reference     |
 | Author unresponsive         | Comment ping, close after 14 days |
+
+### Step 6: Finalize Local Changes
+
+> [!IMPORTANT]
+> **Always commit local changes before completing.** If any local edits were made
+> during the review process (docstring fixes, CHANGELOG updates, etc.), commit and
+> push them before finishing.
+
+Check for uncommitted changes:
+
+```bash
+git status
+```
+
+If there are local changes:
+
+```bash
+git add -A
+git commit -m "chore: pr-review remediation
+
+- [List changes made during review]"
+git push origin main
+```
+
+Confirm clean state before completing:
+
+```bash
+git status
+# Should show: nothing to commit, working tree clean
+```
