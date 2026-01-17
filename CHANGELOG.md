@@ -7,23 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enhanced `pr-triage` skill with user approval checkpoint (Step 3) before taking any actions.
+- Enhanced `pr-triage` skill with finalize step (Step 6) to commit and push local changes made during review.
+
 ### Added
 
 - Added `template/ROADMAP.md` — Template for tracking planned features with status legend and format guide.
 - Added GitHub templates (`.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`) to `template-sync` skill scope.
 - Added 🔴 Automate Bootstrap from Gem Seeds to roadmap (High Priority).
-- Expanded `template/ROADMAP.md` with additional planned features:
-  - Autonomous Manual Test Execution policy (Antigravity extension + recording)
-  - Browser-Based Deep Research Skill for enhanced planning context
-  - Guidance on Opportunistic Lint and Type Error Fixes
-  - Jules Agent for Deprecation Warning Detection in installed packages
-- Created `template/scripts/sync-mcp-config.sh` to automate MCP server configuration synchronization with automatic GitHub token substitution.
-- Updated `template/.agent/IDE_CONFIG.md` to include MCP sync in the environment setup checklist.
 
 ### Changed
 
-- Enhanced `pr-triage` skill with user approval checkpoint (Step 3) before taking any actions.
-- Enhanced `pr-triage` skill with finalize step (Step 6) to commit and push local changes made during review.
 - Expanded Jules schedule to include all 11 agents by default (was 5). New schedule runs between midnight-1 AM CST:
   - Daily: Sentinel
   - Weekly: Code Formatter, Dependency Doctor, Analytics Auditor, Dead Code Scanner, Context7 Librarian, Compliance Auditor, Test Guardian, Context Sync
@@ -32,14 +28,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved `/sync-start` workflow PR guidance—now specifies when to run `/pr-review` (security PRs, stale PRs, or when user has time to act).
 - Integrated `/template-sync` into `/sync-start`—downstream projects now automatically check for and apply template updates during session start.
 - Added untracked critical files check to `/sync-start`—warns if `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not committed.
-- Executed `/sync-end` workflow to document and wrap up the session.
-- Verified server shutdown and process cleanup.
+
+### Added
+- Created `template/scripts/sync-mcp-config.sh` to automate MCP server configuration synchronization with automatic GitHub token substitution.
+- Updated `template/.agent/IDE_CONFIG.md` to include MCP sync in the environment setup checklist.
 
 ### Fixed
 
 - Fixed 34 markdown linting issues (MD040, MD031, MD029, MD025, MD041) across documentation, skills, and workflows.
 - Added language specifiers (`text`, `bash`, `python`) to all fenced code blocks.
 - Fixed blank lines around fences, ordered list numbering, and duplicate headings.
+
+### Added
 
 - Added dependency version management infrastructure:
   - `.github/dependabot.yml` — Automated dependency update PRs
