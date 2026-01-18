@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Jules Agent for Deprecation Warning Detection in installed packages
 - Created `template/scripts/sync-mcp-config.sh` to automate MCP server configuration synchronization with automatic GitHub token substitution.
 - Updated `template/.agent/IDE_CONFIG.md` to include MCP sync in the environment setup checklist.
+- Added new directives to `template/AGENTS.md`:
+  - Section 6: Autonomous Manual Test Execution
+  - Section 7: Opportunistic Error Fixing
+  - Deprecation Scanning (Jules) section
+  - `deep-research` skill reference in Skills Architecture table
+- Bumped `template/TEMPLATE_VERSION` to v1.1.0.
 
 ### Changed
 
