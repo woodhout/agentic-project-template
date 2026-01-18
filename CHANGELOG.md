@@ -54,6 +54,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed `/sync-start` falsely triggering first-time-setup when switching between established projects:
+  - Removed global `~/.gemini/GEMINI.md` symlink from first-time-setup detection (not project-specific)
+  - Added `requirements.txt` existence check to venv detection (skip for projects without Python)
+  - Step 8 (Sync Global IDE Rules) still handles GEMINI.md symlink during normal sync
 - Fixed `/sync-start` to activate venv before running `pre-commit install` (consistent with `/test`, `/format`, `/python` workflows).
 - Fixed sub-list indentation in `/sync-start` workflow to satisfy markdownlint.
 - Fixed 34 markdown linting issues (MD040, MD031, MD029, MD025, MD041) across documentation, skills, and workflows.

@@ -14,9 +14,12 @@ This workflow ensures your local environment is synchronized with the remote rep
 
 **If any of these are true, invoke the `first-time-setup` skill:**
 
-- `.venv/` directory doesn't exist
+- `.venv/` directory doesn't exist (and project has `requirements.txt`)
 - Pre-commit hooks not installed (`.git/hooks/pre-commit` missing)
-- `~/.gemini/GEMINI.md` symlink doesn't exist
+
+> [!NOTE]
+> The `~/.gemini/GEMINI.md` symlink is handled by Step 8 (Sync Global IDE Rules).
+> It's a global user-level file and shouldn't trigger first-time-setup when switching projects.
 
 The skill will handle complete environment setup before continuing.
 
@@ -118,21 +121,24 @@ source .venv/bin/activate && pre-commit install
 
 This enables automatic code quality checks before every commit.
 
-10. **Review MCP Servers (if needed)**:
-    - The canonical config (`.antigravity/mcp_config.json`) includes:
-      - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
-      - `playwright` (browser automation)
-      - `markitdown` (document reading)
-    - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
+### 10. Review MCP Servers (if needed)
 
-11. **Review IDE configuration**:
-    - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
+- The canonical config (`.antigravity/mcp_config.json`) includes:
+  - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
+  - `playwright` (browser automation)
+  - `markitdown` (document reading)
+- For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
 
-12. **Verify Environment**:
-    - Ensure `.python-version` matches your local environment.
-    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
+### 11. Review IDE configuration
 
-13. **Check for Untracked Critical Files**:
+Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
+
+### 12. Verify Environment
+
+- Ensure `.python-version` matches your local environment.
+- Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
+
+### 13. Check for Untracked Critical Files
 
 ```bash
 git status --porcelain | grep -E '^\?\? (scripts/|\.antigravity/|frontend/|tests/)' || true

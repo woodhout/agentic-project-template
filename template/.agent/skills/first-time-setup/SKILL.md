@@ -23,8 +23,8 @@ This skill should be invoked if ANY of these are true:
 
 ```text
 Environment check:
-├── Python venv missing?
-│   └── Test: [ ! -d ".venv" ] && [ ! -d "venv" ]
+├── Python venv missing? (and requirements.txt exists)
+│   └── Test: [ -f "requirements.txt" ] && [ ! -d ".venv" ] && [ ! -d "venv" ]
 │
 ├── Dependencies not installed?
 │   └── Test: pip list shows missing packages
@@ -32,12 +32,13 @@ Environment check:
 ├── Pre-commit not installed?
 │   └── Test: [ ! -f ".git/hooks/pre-commit" ]
 │
-├── GEMINI.md not synced?
-│   └── Test: [ ! -L ~/.gemini/GEMINI.md ]
-│
 └── Node modules missing? (if frontend exists)
     └── Test: [ -f "package.json" ] && [ ! -d "node_modules" ]
 ```
+
+> [!NOTE]
+> The `~/.gemini/GEMINI.md` symlink is NOT checked here because it's a global
+> user-level file, not project-specific. It's handled by `sync-start` Step 8.
 
 ## Step-by-Step Setup
 
@@ -201,13 +202,13 @@ Checklist:
 
 Jules scheduled tasks run via GitHub Actions using the Jules API.
 
-**Step 1: Copy workflow from template** (if not already present)
+#### Step 1: Copy workflow from template (if not already present)
 
 ```bash
 cp template/.github/workflows/jules-schedule.yml .github/workflows/
 ```
 
-**Step 2: Set the API key secret**
+#### Step 2: Set the API key secret
 
 1. Generate API key at [jules.google.com/settings#api](https://jules.google.com/settings#api)
 2. Add to repository secrets:
@@ -217,7 +218,7 @@ gh secret set JULES_API_KEY
 # Paste your API key when prompted
 ```
 
-**Step 3: Verify setup**
+#### Step 3: Verify setup
 
 ```bash
 # Check secret exists
@@ -231,6 +232,7 @@ gh workflow run jules-schedule.yml -f task=sentinel
 ```
 
 **Schedule:**
+
 - Daily: Sentinel (security scan)
 - Weekly: Code formatter, dependency doctor, dead code scanner, test guardian
 
