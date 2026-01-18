@@ -1,0 +1,28 @@
+repos:
+  # Markdown linting (appropriate for template repo)
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.42.0
+    hooks:
+      - id: markdownlint
+        args: [--fix, --disable, MD013, MD033, MD041, MD001, MD007, MD029, --]
+        # MD013: line length (too strict for docs)
+        # MD033: inline HTML (needed for alerts)
+        # MD041: first line h1 (frontmatter files)
+        # MD001: heading increment (GEMINI.md structure)
+        # MD007: ul indent (workflow files use 3-space)
+        # MD029: ordered list prefix (existing style)
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [-d, "{extends: relaxed, rules: {line-length: disable}}"]
+
+  # Secret detection
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ["--baseline", ".secrets.baseline"]
+        exclude: package-lock\.json
