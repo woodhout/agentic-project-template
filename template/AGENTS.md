@@ -8,7 +8,6 @@
 > 📚 **Patterns:** See [`patterns/`](patterns/) for cloud/framework-specific best practices.  
 > 🔗 **Template Origin:** This project inherits from [agentic-project-template](https://github.com/woodhout/agentic-project-template). See [`TEMPLATE_VERSION`](TEMPLATE_VERSION) for sync status.
 
-
 ---
 
 ## ⚠️ CRITICAL DIRECTIVES (NON-NEGOTIABLE)
@@ -20,7 +19,6 @@
 0. **Run tests**: `pytest tests/ -m "not expensive"` (must pass)
 
 1. **Update `CHANGELOG.md`** — Add entry for ANY:
-
    - New features or API endpoints
    - Performance improvements
    - Security fixes
@@ -28,7 +26,6 @@
    - Bug fixes
 
 2. **Update `QUICK_REFERENCE.md`** — If:
-
    - New API endpoints added
    - Architecture changes
    - New dependencies or tools added
@@ -67,6 +64,18 @@ Before creating a PR:
 - If an external service fails, attempt fallback before crashing
 - Log errors with context (IDs, operation, timestamp)
 - Mark operations as `failed` with clear error messages
+
+### 6. Autonomous Manual Test Execution
+
+- **Policy:** Autonomously perform any tests that would otherwise be suggested as "manual tests".
+- **Tooling:** Always use the [Antigravity Chrome browser extension](.antigravity/) via the browser subagent.
+- **Verification:** Record either a successful test session or the last unsuccessful attempt before exiting. Save video/screenshot artifacts.
+
+### 7. Opportunistic Error Fixing
+
+- **Rule:** When encountering unrelated linting, type errors (mypy), or static analysis warnings, use judgment to fix them.
+- **Timing:** Perform these fixes after the primary task is complete, or during execution if it simplifies the current work.
+- **Documentation:** Briefly document these "clean-as-you-go" fixes in the commit message or changelog.
 
 ---
 
@@ -220,10 +229,10 @@ All pinned tool versions are tracked in [`VERSIONS.md`](VERSIONS.md):
 
 ### Update Process
 
-| Update Type | Process |
-|-------------|---------|
-| Security fix | Apply immediately, test, document |
-| Minor/patch | Apply, test, update VERSIONS.md |
+| Update Type   | Process                                                |
+| ------------- | ------------------------------------------------------ |
+| Security fix  | Apply immediately, test, document                      |
+| Minor/patch   | Apply, test, update VERSIONS.md                        |
 | Major version | Review changelog, test in branch, verify compatibility |
 
 ### Automated Updates
@@ -263,8 +272,16 @@ For complex updates, invoke: `.agent/skills/update-deps/SKILL.md`
 | `update-deps`      | Dependency updates with compatibility checks  |
 | `template-sync`    | Propagate template updates to this project    |
 | `recovery`         | Handle failures, rollbacks, stuck situations  |
+| `deep-research`    | Browser-based research for planning context   |
 
 **Usage:** View a skill with `view_file .agent/skills/<skill-name>/SKILL.md` before using it. Workflows (e.g., `/review`, `/recover`) invoke these automatically.
+
+---
+
+## 🧪 Deprecation Scanning (Jules)
+
+**Prompt:** `.jules/prompts/deprecation_scanner.md`
+**Rule:** Regularly scan for and report package deprecation warnings (e.g., via `pytest -W default::DeprecationWarning`). Suggest upgrade paths in the findings report.
 
 ---
 

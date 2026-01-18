@@ -1,10 +1,11 @@
 template: woodhout/agentic-project-template
 template_url: https://github.com/woodhout/agentic-project-template
-version: v1.0.0
-synced: 2026-01-14
+version: v1.1.0
+synced: 2026-01-18
 notes: |
-  Initial template version.
-  Projects should update this file when syncing from template.
+  - Added Roadmap (Items 3-6): Autonomous Testing, Deep Research Skill, Opportunistic Error Fixing, Jules Deprecation Scanner.
+  - Standardized ROADMAP.md format.
+  - Added new AGENTS.md directives for autonomous testing and opportunistic error fixing.
 sync_command: |
   # To check for template updates:
   git remote add template git@github.com:woodhout/agentic-project-template.git
