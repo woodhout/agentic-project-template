@@ -4,7 +4,7 @@ description: submit lessons learned from this project back to the template
 
 # Template Feedback Workflow
 
-Submit improvements discovered in downstream projects back to the template.
+Submit improvements discovered in downstream projects back to the template via GitHub Issues.
 
 ## When to Use
 
@@ -22,21 +22,14 @@ Capture these elements:
 - **Proposed Fix:** Specific change to template file(s)
 - **Rationale:** Why is this better?
 
-### 2. Navigate to Template
+### 2. Submit via GitHub Issue
+
+// turbo
 
 ```bash
-# turbo
-cd ~/dev/personal/agentic-project-template/template
-```
-
-### 3. Add Entry to LESSONS_QUEUE.md
-
-Prepend a new entry at the top of the "Pending Lessons" section:
-
-```markdown
-### YYYY-MM-DD: [Brief title]
-
-**Source:** [project name]
+gh issue create --repo woodhout/agentic-project-template \
+  --title "lesson: [brief title] from [project-name]" \
+  --body "**Source:** [project name]
 **Category:** Workflow | Skill | Pattern | Config | Docs
 **Affected:** [file path(s)]
 
@@ -47,44 +40,31 @@ Prepend a new entry at the top of the "Pending Lessons" section:
 [Specific change recommendation]
 
 **Rationale:**
-[Why this improves the template]
+[Why this improves the template]" \
+  --label "lesson-submission"
 ```
 
-### 4. Commit the Entry
+**Note:** No local template clone required. The template maintainer will review via `/review-lessons`.
+
+## Example
 
 ```bash
-git add LESSONS_QUEUE.md
-git commit -m "lesson: [brief title] from [project-name]"
-git push origin main
-```
-
-### 5. (Optional) Create Issue for Complex Changes
-
-For lessons requiring significant work:
-
-```bash
-gh issue create \
-  --title "Template improvement: [title]" \
-  --body "See LESSONS_QUEUE.md entry from YYYY-MM-DD" \
-  --label "template-improvement"
-```
-
-## Example Entry
-
-```markdown
-### 2026-01-14: Prefer CLI over MCP for verbose APIs
-
-**Source:** resume-tailoring-agentic-system
-**Category:** Workflow
-**Affected:** `.agent/workflows/pr-review.md`
+gh issue create --repo woodhout/agentic-project-template \
+  --title "lesson: Add --delete-branch to pr-triage from resume-tailoring" \
+  --body "**Source:** resume-tailoring-agentic-system
+**Category:** Skill
+**Affected:** \`.agent/skills/pr-triage/SKILL.md\`
 
 **Problem:**
-The initial MCP API response truncated 6+ PRs due to verbose JSON.
+When closing PRs (not merging), remote branches were left behind.
 
 **Proposed Fix:**
-`/pr-review` should use `gh pr list` CLI which returns minimal output.
+\`\`\`diff
+-gh pr close [PR_NUMBER] --comment \"Closing: [reason]\"
++gh pr close [PR_NUMBER] --delete-branch --comment \"Closing: [reason]\"
+\`\`\`
 
 **Rationale:**
-CLI tools provide concise output optimized for terminal use, while MCP/API
-responses include full JSON payloads that can exceed context windows.
+Bot-created PRs don't need branch preservation. Prevents stale branch accumulation." \
+  --label "lesson-submission"
 ```

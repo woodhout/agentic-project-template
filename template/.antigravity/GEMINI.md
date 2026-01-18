@@ -14,6 +14,7 @@ For quick answers or trivial changes, these core rules apply:
 - **LLM outputs**: Use `instructor` library for structured output
 - **Idempotency**: Check storage before regenerating artifacts
 - **Tests before commit**: Run `pytest tests/ -m "not expensive"`
+- **Atomic commits**: One logical change per commit (easier revert, bisect, review)
 - **Log mistakes**: Add agent errors to AGENTS.md anti-patterns table
 
 For complex tasks, read `AGENTS.md` for full architectural constraints.

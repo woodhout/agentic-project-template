@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Complete template feedback loop for lessons from downstream projects:
+  - `/template-feedback` workflow now uses GitHub Issues (no local clone required)
+  - New `lessons-review` skill for evaluating pending lesson submissions
+  - New `/review-lessons` workflow wrapper for discoverability
+  - `/sync-start` now checks for pending lessons in template repo
+  - `/sync-end` includes structured reflection prompts to surface lessons
+- Added atomic commits principle to `GEMINI.md` Quick Rules
 - Added `template/ROADMAP.md` — Template for tracking planned features with status legend and format guide.
 - Added GitHub templates (`.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`) to `template-sync` skill scope.
 - Added 🔴 Automate Bootstrap from Gem Seeds to roadmap (High Priority).

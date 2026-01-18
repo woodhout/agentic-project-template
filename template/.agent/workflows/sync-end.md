@@ -34,12 +34,17 @@ This workflow ensures your work is documented, committed, pushed, and local proc
 
    If skill opportunities are identified, propose them to the user.
 
-4. **Template Feedback (if applicable)**:
+4. **Session Reflection for Template Lessons**:
 
-   If you discovered that a template workflow, skill, or pattern could be improved:
+   Before wrapping up, reflect on this session:
 
-   - Run `/template-feedback` workflow to add the lesson to `LESSONS_QUEUE.md`
-   - This captures improvements for review and potential sync to all projects
+   - [ ] Did any template workflow require workarounds?
+   - [ ] Were there repeated multi-step patterns not covered by skills?
+   - [ ] Did you hit limitations in a skill that required manual intervention?
+   - [ ] Did a template configuration cause friction?
+
+   **If any checkbox applies:** Run `/template-feedback` to submit the lesson.
+   **If nothing applies:** Continue to next step.
 
 5. **Documentation Refresh**:
 
