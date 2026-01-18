@@ -155,7 +155,7 @@ git push --force-with-lease
 **Close:**
 
 ```bash
-gh pr close [PR_NUMBER] --comment "Closing: [reason]"
+gh pr close [PR_NUMBER] --delete-branch --comment "Closing: [reason]"
 ```
 
 **Request changes:**
