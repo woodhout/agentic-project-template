@@ -13,29 +13,7 @@
 
 ## Pending Lessons
 
-### 2026-01-18: Add --delete-branch to pr-triage close command
-
-**Source:** resume-tailoring-agentic-system
-**Category:** Skill
-**Affected:** `.agent/skills/pr-triage/SKILL.md`
-
-**Problem:**
-When closing PRs (not merging), remote branches were left behind. GitHub's `deleteBranchOnMerge` setting only applies to merged PRs, not closed ones. After a PR triage session, 23 stale branches accumulated from closed/superseded PRs.
-
-**Proposed Fix:**
-Update the close command in pr-triage skill:
-
-```diff
--gh pr close [PR_NUMBER] --comment "Closing: [reason]"
-+gh pr close [PR_NUMBER] --delete-branch --comment "Closing: [reason]"
-```
-
-**Rationale:**
-Bot-created PRs (Jules, Dependabot) and superseded PRs don't need branch preservation. Adding `--delete-branch` prevents stale branch accumulation.
-
----
-
-_No other pending lessons._
+_No pending lessons._
 
 ---
 
@@ -55,6 +33,21 @@ When reviewing lessons, consider:
 ## Resolved
 
 <!-- Move resolved entries here with resolution notes -->
+
+### 2026-01-18: Add --delete-branch to pr-triage close command ✅
+
+**Source:** resume-tailoring-agentic-system
+**Category:** Skill
+**Affected:** `.agent/skills/pr-triage/SKILL.md`
+
+**Problem:**
+When closing PRs, remote branches were left behind causing 23 stale branches.
+
+**Resolution:**
+Updated `gh pr close` command in pr-triage skill to include `--delete-branch` flag.
+This was already applied in a previous session; this entry records the resolution.
+
+---
 
 ### 2026-01-14: Prefer CLI over MCP for verbose APIs ✅
 
