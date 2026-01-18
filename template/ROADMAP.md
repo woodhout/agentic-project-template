@@ -57,6 +57,7 @@ Define standard user-facing documentation that should be generated and kept up-t
 - Establish documentation templates and structure
 - Automate documentation updates during development workflows
 - Ensure documentation stays in sync with code changes
+- **Design Inspiration:** See `reference/20260116_183359.jpg` for expected structure and visual style.
 
 ---
 
