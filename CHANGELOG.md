@@ -54,6 +54,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed `/sync-start` to activate venv before running `pre-commit install` (consistent with `/test`, `/format`, `/python` workflows).
+- Fixed sub-list indentation in `/sync-start` workflow to satisfy markdownlint.
 - Fixed 34 markdown linting issues (MD040, MD031, MD029, MD025, MD041) across documentation, skills, and workflows.
 - Added language specifiers (`text`, `bash`, `python`) to all fenced code blocks.
 - Fixed blank lines around fences, ordered list numbering, and duplicate headings.

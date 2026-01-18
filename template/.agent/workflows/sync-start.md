@@ -113,37 +113,35 @@ The skill will handle complete environment setup before continuing.
 // turbo 9. **Install Pre-Commit Hooks** (if not already installed):
 
 ```bash
-pre-commit install
+source .venv/bin/activate && pre-commit install
 ```
 
 This enables automatic code quality checks before every commit.
 
 10. **Review MCP Servers (if needed)**:
-
-   - The canonical config (`.antigravity/mcp_config.json`) includes:
-     - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
-     - `playwright` (browser automation)
-     - `markitdown` (document reading)
-   - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
+    - The canonical config (`.antigravity/mcp_config.json`) includes:
+      - `github-mcp-server` (25 tools, see `IDE_CONFIG.md` for list)
+      - `playwright` (browser automation)
+      - `markitdown` (document reading)
+    - For full setup instructions, see [SETUP.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/SETUP.md#2-mcp-servers-model-context-protocol)
 
 11. **Review IDE configuration**:
-
-   - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
+    - Check [.agent/IDE_CONFIG.md](file:///Users/ty/dev/personal/resume-tailoring-agentic-system/.agent/IDE_CONFIG.md) for any new global rules or extensions.
 
 12. **Verify Environment**:
-
-   - Ensure `.python-version` matches your local environment.
-   - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
+    - Ensure `.python-version` matches your local environment.
+    - Verify any necessary environment variables (e.g., `GITHUB_PERSONAL_ACCESS_TOKEN`) are set.
 
 13. **Check for Untracked Critical Files**:
 
-   ```bash
-   git status --porcelain | grep -E '^\?\? (scripts/|\.antigravity/|frontend/|tests/)' || true
-   ```
+```bash
+git status --porcelain | grep -E '^\?\? (scripts/|\.antigravity/|frontend/|tests/)' || true
+```
 
-   **If untracked critical directories are found:**
-   - Warn that `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not tracked
-   - Recommend running `/push` to commit infrastructure files
-   - These directories should typically be in version control
+**If untracked critical directories are found:**
 
-   **If no untracked critical files:** Environment is fully synchronized ✅
+- Warn that `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not tracked
+- Recommend running `/push` to commit infrastructure files
+- These directories should typically be in version control
+
+**If no untracked critical files:** Environment is fully synchronized ✅
