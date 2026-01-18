@@ -47,6 +47,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added untracked critical files check to `/sync-start`—warns if `scripts/`, `.antigravity/`, `frontend/`, or `tests/` are not committed.
 - Executed `/sync-end` workflow to document and wrap up the session.
 - Verified server shutdown and process cleanup.
+- Separated template development roadmap from downstream project roadmap template:
+  - Moved detailed development roadmap to `./ROADMAP.md` (root).
+  - Reset `template/ROADMAP.md` to a clean placeholder for new projects.
+  - Added "Standard User-Facing Documentation" item to root roadmap with inspiration reference to `reference/20260116_183359.jpg`.
 
 ### Fixed
 
