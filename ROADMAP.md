@@ -90,6 +90,37 @@ Create a skill for using local browser automation to conduct deep research when 
 
 ---
 
+### 🔴 Playwright MCP Browser Skill
+
+**Priority:** High
+**Category:** Tooling/Skills
+
+Create a skill for the agent to use Playwright via MCP for local browser automation to access the browser and take screenshots and recordings of any findings.
+
+**Key Requirements:**
+
+- Enable persistent browser access via Playwright MCP
+- Mechanisms for taking screenshots and recordings of tests/settings
+- Documentation for agent usage patterns
+
+---
+
+### 🔴 Exploration Skill
+
+**Priority:** High
+**Category:** Tooling/Skills
+
+Create a skill that leverages the Playwright MCP browser skill to autonomously "use" the target application. The agent should actively look for opportunities, enhancements, and new feature ideas during usage.
+
+**Key Requirements:**
+
+- Leverage Playwright MCP for navigation and interaction
+- Analyze UI/UX and functionality for improvements
+- **Roadmap Review Queue**: Create a mechanism/queue (file or workflow) to capture these suggestions for later review
+- Log all findings to the Roadmap Review Queue
+
+---
+
 ### 🔴 Opportunistic Error Fixing
 
 **Priority:** Medium

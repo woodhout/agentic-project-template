@@ -37,6 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Deprecation Scanning (Jules) section
   - `deep-research` skill reference in Skills Architecture table
 - Bumped `template/TEMPLATE_VERSION` to v1.1.0.
+- Added 🔴 Playwright MCP Browser Skill to roadmap (High Priority).
+- Added 🔴 Exploration Skill (with Roadmap Review Queue) to roadmap (High Priority).
 
 ### Changed
 
