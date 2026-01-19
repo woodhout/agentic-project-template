@@ -39,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bumped `template/TEMPLATE_VERSION` to v1.1.0.
 - Added 🔴 Playwright MCP Browser Skill to roadmap (High Priority).
 - Added 🔴 Exploration Skill (with Roadmap Review Queue) to roadmap (High Priority).
+- Added 🔴 Task Kickoff & Pre-Planning Workflow to roadmap (High Priority).
+- Executed `/sync-end` workflow to finalize session.
 
 ### Changed
 

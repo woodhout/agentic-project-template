@@ -121,6 +121,25 @@ Create a skill that leverages the Playwright MCP browser skill to autonomously "
 
 ---
 
+### 🔴 Task Kickoff & Pre-Planning Workflow
+
+**Priority:** High
+**Category:** Process/Workflow
+
+Establish a standard workflow/skill for the "Kickoff" phase that occurs *after* selecting roadmap items (via `/roadmap-review`) but *before* drafting the `implementation_plan.md`.
+
+**Key Requirements:**
+
+- **Analysis Phase**: Agent must review selected items and advise on:
+  - Research needs (libraries, patterns, existing code context)
+  - Potential architectural concerns or risks
+  - Suggestions for implementation approaches
+  - Key decisions required from the user
+- **Collaboration Loop**: Iterate with the user on these findings.
+- **Transition Criteria**: Only proceed to draft `implementation_plan.md` and `task.md` once the user confirms readiness based on the analysis.
+
+---
+
 ### 🔴 Opportunistic Error Fixing
 
 **Priority:** Medium
