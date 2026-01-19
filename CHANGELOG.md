@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `Jules Scheduled Jobs Manager` idea to `FUTURE_PROJECTS.md` backlog.
+
 - Project idea tracking infrastructure:
   - `FUTURE_PROJECTS.md` — Template for tracking project ideas with status legend (🆕/🏗️/✅/🗑️)
   - `/idea-review` workflow — Review and manage ideas, guide to Gem for seed generation
