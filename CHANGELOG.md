@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `Jules Scheduled Jobs Manager` idea to `FUTURE_PROJECTS.md` backlog.
+- Added `Explicit First-Time Setup Logic` to roadmap (High Priority).
+- Added `Template vs. Downstream Workflow Differentiation` to roadmap (Medium Priority).
+- Added `Downstream Idea Capture & Feedback Loop` to roadmap (Medium Priority).
 
 - Project idea tracking infrastructure:
   - `FUTURE_PROJECTS.md` — Template for tracking project ideas with status legend (🆕/🏗️/✅/🗑️)

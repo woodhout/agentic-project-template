@@ -14,6 +14,52 @@
 
 ## Planned Items
 
+### 🔴 Explicit First-Time Setup Logic
+
+**Priority:** High
+**Category:** Infrastructure/Automation
+
+Distinguish clearly between first-time setup actions (bootstrap) vs. recurring synchronization (`sync-start`, `template-sync`) to prevent redundant configuration steps in downstream projects.
+
+**Key Requirements:**
+
+- Audit `bootstrap`, `sync-start`, and `template-sync` workflows
+- Ensure idempotent behavior for recurring syncs
+- Verify that "first-time" logic only runs once or when explicitly requested
+
+---
+
+### 🔴 Template vs. Downstream Workflow Differentiation
+
+**Priority:** Medium
+**Category:** Process/Workflow
+
+Analyze and categorize workflows to distinguish those applicable to the template project itself versus those intended for downstream bootstrapped projects.
+
+**Key Requirements:**
+
+- Review all `.agent/workflows`
+- Tag or separate workflows relevant only to the template maintenance
+- Ensure downstream projects only receive/inherit relevant workflows
+- Update documentation to reflect the distinction
+
+---
+
+### 🔴 Downstream Idea Capture & Feedback Loop
+
+**Priority:** Medium
+**Category:** Process/Workflow
+
+Create a mechanism for downstream projects to easily capture new project ideas and feed them back into the template project's `FUTURE_PROJECTS.md` or a dedicated queue for consideration.
+
+**Key Requirements:**
+
+- "Submit Idea" workflow/skill in downstream projects
+- Centralized queue or inbox in the template project (e.g., `TEMPLATE_IDEAS_QUEUE.md`)
+- Review process to promote ideas to `FUTURE_PROJECTS.md`
+
+---
+
 ### 🔴 Automate Bootstrap from Gem Seeds
 
 **Priority:** High
@@ -126,7 +172,7 @@ Create a skill that leverages the Playwright MCP browser skill to autonomously "
 **Priority:** High
 **Category:** Process/Workflow
 
-Establish a standard workflow/skill for the "Kickoff" phase that occurs *after* selecting roadmap items (via `/roadmap-review`) but *before* drafting the `implementation_plan.md`.
+Establish a standard workflow/skill for the "Kickoff" phase that occurs _after_ selecting roadmap items (via `/roadmap-review`) but _before_ drafting the `implementation_plan.md`.
 
 **Key Requirements:**
 
