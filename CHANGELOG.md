@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `Explicit First-Time Setup Logic` to roadmap (High Priority).
 - Added `Template vs. Downstream Workflow Differentiation` to roadmap (Medium Priority).
 - Added `Downstream Idea Capture & Feedback Loop` to roadmap (Medium Priority).
+- Added 🔴 Periodic Health Checks & Tech Assessments to roadmap.
+- Added 🔴 Agent Context & Skill Alignment Review to roadmap.
+- Added 🔴 Centralized Idea Queue & Bootstrapping to roadmap.
+- Added 🔴 Template Sync: Detect New Remote Projects to roadmap.
 
 - Project idea tracking infrastructure:
   - `FUTURE_PROJECTS.md` — Template for tracking project ideas with status legend (🆕/🏗️/✅/🗑️)

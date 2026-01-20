@@ -167,6 +167,68 @@ Create a skill that leverages the Playwright MCP browser skill to autonomously "
 
 ---
 
+### 🔴 Periodic Health Checks & Tech Assessments
+
+**Priority:** Medium
+**Category:** Process/Maintenance
+
+Establish a process for periodic project health checks and technical assessments to ensure long-term maintainability and architectural soundness.
+
+**Key Requirements:**
+
+- **Health Check Protocol:** Define a checklist for documentation freshness, file hygiene, and compliance consistency (see `resume-tailoring-agentic-system/docs/health_check.md` for reference).
+- **Tech Stack Assessment:** Periodic review of frameworks, databases, and infrastructure against evolving requirements.
+- **LLM Architecture Review:** Assessment of models used, orchestration patterns, and model sources (OpenRouter vs Direct) to optimize for cost/performance.
+- **Output:** Standardized report templates for these finding.
+
+---
+
+### 🔴 Agent Context & Skill Alignment Review
+
+**Priority:** Medium
+**Category:** Process/Maintenance
+
+Reassess all template agent contexts (e.g., `AGENTS.md`), workflows, and skill definitions to ensure they align with the expanded skill set added since project inception.
+
+**Key Requirements:**
+
+- **Holistic Review:** Analyze `AGENTS.md` rules against current `tools` and `.agent/skills/`.
+- **Optimization:** Identify redundant prompts or missing instructions for new capabilities (e.g., new MCP servers).
+- **Skill Integration:** Ensure core agent context explicitly knows when/how to use newer skills (e.g., Playwright, Browser Automation) effectively.
+
+---
+
+### 🔴 Centralized Idea Queue & Bootstrapping
+
+**Priority:** Medium
+**Category:** Process/Workflow
+
+Implement a centralized mechanism for downstream projects to submit future project ideas, and a workflow to review and promote these ideas into new project repositories via the Bootstrap skill.
+
+**Key Requirements:**
+
+- **Idea Ingestion:** Standard mechanism (Issues or central file) to capture ideas from downstream.
+- **Review Workflow:** Extensions to `/idea-review` or new workflow to triage these external ideas.
+- **Promotion Action:** Ability to trigger `Bootstrap New Project` skill directly from an accepted idea, pre-filling context.
+
+---
+
+### 🔴 Template Sync: Detect New Remote Projects
+
+**Priority:** Medium
+**Category:** Process/Workflow
+
+Enhance `/sync-start` (specifically for the template project) to detect projects that may have been bootstrapped on other machines.
+
+**Key Requirements:**
+
+- **Scope:** Template project only.
+- **Detection:** Query GitHub for repositories that are not present locally.
+- **Filter:** Identify projects that are relevant (e.g., match template patterns or generally new repos).
+- **Interactive Prompt:** Ask user if they want to clone these missing projects to the current machine.
+
+---
+
 ### 🔴 Task Kickoff & Pre-Planning Workflow
 
 **Priority:** High
