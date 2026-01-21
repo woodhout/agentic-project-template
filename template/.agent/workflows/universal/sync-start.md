@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: start a development session with full sync and dependency check
 ---
+scope: universal
 
 # Sync Start Workflow
 
@@ -12,18 +14,22 @@ This workflow ensures your local environment is synchronized with the remote rep
 
 ### 0. First-Time Setup Check
 
-**If any of these are true, invoke the `first-time-setup` skill:**
+**If `.agent/.setup-complete` does NOT exist AND any of these are true, invoke the `first-time-setup` skill:**
 
 - `.venv/` directory doesn't exist (and project has `requirements.txt`)
 - Pre-commit hooks not installed (`.git/hooks/pre-commit` missing)
 
 > [!NOTE]
+> The `.agent/.setup-complete` marker is machine-specific (gitignored).
+> Each developer's first `/sync-start` on a new machine will trigger first-time-setup.
 > The `~/.gemini/GEMINI.md` symlink is handled by Step 8 (Sync Global IDE Rules).
-> It's a global user-level file and shouldn't trigger first-time-setup when switching projects.
+
+If `.agent/.setup-complete` exists, skip first-time setup and proceed to Step 1.
 
 The skill will handle complete environment setup before continuing.
 
 ---
+scope: universal
 
 1. **Pull latest changes**:
 

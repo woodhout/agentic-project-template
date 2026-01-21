@@ -68,9 +68,20 @@ mkdir -p ~/dev/personal/$PROJECT_NAME
 ### 3. Copy Template Files
 
 ```bash
+# Copy all template files except workflows
 cp -r template/* ~/dev/personal/$PROJECT_NAME/
 cp -r template/.* ~/dev/personal/$PROJECT_NAME/ 2>/dev/null || true
+
+# Remove template-only workflows (not applicable to downstream projects)
+rm -rf ~/dev/personal/$PROJECT_NAME/.agent/workflows/template-only
 ```
+
+> [!NOTE]
+> Workflows are organized by scope:
+>
+> - `universal/` — Works in all projects (copied)
+> - `downstream-only/` — Works in downstream projects (copied)
+> - `template-only/` — Only for template maintenance (excluded)
 
 ### 4. Integrate Seed Documents
 
@@ -123,9 +134,12 @@ git remote add origin git@github.com:[username]/[project_name].git
 git push -u origin main
 ```
 
-### 9. Configure Jules Automation
+### 9. Run Initial Sync Start
 
-After pushing, follow the instructions in **Step 12** of `first-time-setup` skill to set up Jules via GitHub Actions and the Jules API.
+After pushing, run `/sync-start` in the new project directory. This will:
+
+1. Trigger `first-time-setup` skill (creates venv, installs deps, configures Jules)
+2. Create the `.agent/.setup-complete` marker
 
 ### 9b. Create Suggested Skills
 

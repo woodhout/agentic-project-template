@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: Update project dependencies with safety checks and documentation updates
 ---
+scope: universal
 
 # /update-deps Workflow
 

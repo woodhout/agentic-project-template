@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.DS_Store
+*.pyc
+
+# Machine-specific setup marker (per-machine, not committed)
+.agent/.setup-complete

@@ -9,6 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Workflow scope differentiation with directory structure:
+  - Reorganized `.agent/workflows/` into `universal/`, `template-only/`, `downstream-only/` subdirectories
+  - Added `scope:` metadata to workflow frontmatter
+  - Created `/submit-idea` workflow for downstream projects to submit ideas to template
+  - Updated `/idea-review` to check for `idea-submission` GitHub Issues
+  - Updated `bootstrap/SKILL.md` to filter out template-only workflows
+- First-time setup marker file (`.agent/.setup-complete`):
+  - Machine-specific marker to track first-time setup completion
+  - Updated `sync-start.md` to check marker before triggering first-time-setup
+  - Updated `first-time-setup/SKILL.md` to create marker after completion
+  - Created `template/.gitignore` with marker exclusion
+- Self-deleting migration skill (`migrate-workflow-dirs/SKILL.md`):
+  - One-time migration from flat workflow structure to scoped directories
+  - Verification checklist before self-deletion
+  - Updated `template-sync/SKILL.md` to detect and invoke migration
+
+### Changed
+
+- Marked three roadmap items as completed:
+  - ✅ Opportunistic Error Fixing (already existed in AGENTS.md Section 7)
+  - ✅ Explicit First-Time Setup Logic
+  - ✅ Template vs. Downstream Workflow Differentiation
+
 - Added hierarchical documentation strategy to roadmap.
 
 - Added `Jules Scheduled Jobs Manager` idea to `FUTURE_PROJECTS.md` backlog.
@@ -52,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added 🔴 Task Kickoff & Pre-Planning Workflow to roadmap (High Priority).
 - Executed `/sync-end` workflow to finalize session.
 
-### Changed
+### Changed (Previous)
 
 - Enhanced `pr-triage` skill with user approval checkpoint (Step 3) before taking any actions.
 - Enhanced `pr-triage` skill with finalize step (Step 6) to commit and push local changes made during review.

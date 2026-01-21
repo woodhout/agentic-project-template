@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: post-implementation cleanup for dead code, duplication, and complexity
 ---
+scope: universal
 
 # Simplify Workflow
 

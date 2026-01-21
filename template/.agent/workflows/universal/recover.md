@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: Handle failures, rollbacks, and stuck commands
 ---
+scope: universal
 
 # /recover Workflow
 

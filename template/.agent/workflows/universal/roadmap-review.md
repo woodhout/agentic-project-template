@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: review roadmap items ranked from easiest/least impactful to most difficult/most impactful
 ---
+scope: universal
 
 # Roadmap Review Workflow
 

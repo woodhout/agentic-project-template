@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: end a development session with doc updates, cleanup, and push
 ---
+scope: universal
 
 # Sync End Workflow
 

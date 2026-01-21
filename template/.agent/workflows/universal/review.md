@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: perform multi-model code review with artifact handoff
 ---
+scope: universal
 
 # Review Workflow
 

@@ -1,5 +1,6 @@
 ---
 description: submit lessons learned from this project back to the template
+scope: downstream-only
 ---
 
 # Template Feedback Workflow

@@ -1,5 +1,6 @@
 ---
 description: review and resolve pending template lessons
+scope: template-only
 ---
 
 # Review Lessons Workflow

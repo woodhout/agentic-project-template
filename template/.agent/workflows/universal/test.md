@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: run the complete pytest test suite
 ---
+scope: universal
 
 # Test Workflow
 

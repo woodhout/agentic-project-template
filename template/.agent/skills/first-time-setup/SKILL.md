@@ -198,7 +198,24 @@ Checklist:
 - [ ] `.env` file exists (if required)
 - [ ] Tests pass
 
-### 12. Configure Jules Automation (Required)
+### 12. Create Setup Marker
+
+Create the marker file to indicate first-time setup is complete:
+
+```bash
+mkdir -p .agent
+cat > .agent/.setup-complete << EOF
+first_time_setup:
+  completed: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+  machine: $(hostname)
+EOF
+```
+
+> [!NOTE]
+> This file is gitignored. Each machine creates its own marker.
+> Future `/sync-start` runs will skip first-time-setup when this marker exists.
+
+### 13. Configure Jules Automation (Required)
 
 Jules scheduled tasks run via GitHub Actions using the Jules API.
 

@@ -25,6 +25,9 @@ Start
 │  ├─ YES → Go to "New Project Setup"
 │  └─ NO ↓
 │
+├─ Does template have `.agent/workflows/universal/` but local has flat structure?
+│  └─ YES → Invoke `migrate-workflow-dirs` skill first
+│
 ├─ What are you syncing?
 │  ├─ Everything → Go to "Full Sync"
 │  ├─ Specific folder → Go to "Selective Sync"
@@ -34,6 +37,11 @@ Start
    └─ YES → Go to "Conflict Resolution"
 ```
 
+> [!IMPORTANT]
+> **Workflow Structure Migration**: If your project has flat workflow files in `.agent/workflows/*.md`
+> but the template now uses subdirectories (`universal/`, `downstream-only/`), you must run the
+> `migrate-workflow-dirs` skill before syncing workflows. This is a one-time migration.
+
 ---
 
 ## New Project Setup
@@ -41,6 +49,7 @@ Start
 ### First-Time Setup (When Creating from Template)
 
 1. **Bootstrap the project**
+
    ```bash
    # Clone template
    cp -r template/ new-project/
@@ -49,11 +58,13 @@ Start
    ```
 
 2. **Add template remote for future syncs**
+
    ```bash
    git remote add template git@github.com:woodhout/agentic-project-template.git
    ```
 
 3. **Create version tracking file**
+
    ```bash
    cat > TEMPLATE_VERSION << 'EOF'
    template: woodhout/agentic-project-template
@@ -72,22 +83,26 @@ Start
 ## Full Sync
 
 ### When to Use
+
 - Quarterly sync to catch all template improvements
 - After major template updates
 
 ### Procedure
 
 1. **Check current template version**
+
    ```bash
    cat TEMPLATE_VERSION
    ```
 
 2. **Fetch latest template**
+
    ```bash
    git fetch template main
    ```
 
 3. **Review what changed**
+
    ```bash
    # See all changed files since last sync
    git diff HEAD..template/main -- \
@@ -98,15 +113,17 @@ Start
    ```
 
 4. **Sync safe directories** (usually no conflicts)
+
    ```bash
    # Skills - safe to overwrite
    cp -r template/.agent/skills/* .agent/skills/
-   
+
    # Jules prompts - safe to overwrite
    cp -r template/.jules/prompts/* .jules/prompts/
    ```
 
 5. **Review project-specific files** (may have customizations)
+
    ```bash
    # Show diff for AGENTS.md
    git diff HEAD..template/main -- template/AGENTS.md
@@ -114,12 +131,14 @@ Start
    ```
 
 6. **Update version tracking**
+
    ```bash
    # Update TEMPLATE_VERSION
    sed -i '' "s/synced:.*/synced: $(date +%Y-%m-%d)/" TEMPLATE_VERSION
    ```
 
 7. **Test and commit**
+
    ```bash
    pre-commit run --all-files
    pytest tests/ -m "not expensive"
@@ -131,21 +150,22 @@ Start
 
 ## Selective Sync
 
-### When to Use
+### When to Use Selective Sync
+
 - Adopting specific new feature (e.g., new skill)
 - Updating specific tooling category
 
 ### Sync by Category
 
-| Category | Safe to Overwrite | Path |
-|----------|-------------------|------|
-| Skills | ✅ Yes | `.agent/skills/` |
-| Workflows | ⚠️ Check for customization | `.agent/workflows/` |
-| Jules prompts | ✅ Yes | `.jules/prompts/` |
-| Patterns | ✅ Yes | `patterns/` |
-| GitHub templates | ✅ Yes | `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md` |
-| Pre-commit config | ⚠️ Check versions | `.pre-commit-config.yaml` |
-| AGENTS.md | ❌ Merge manually | `AGENTS.md` |
+| Category          | Safe to Overwrite          | Path                                                          |
+| ----------------- | -------------------------- | ------------------------------------------------------------- |
+| Skills            | ✅ Yes                     | `.agent/skills/`                                              |
+| Workflows         | ⚠️ Check for customization | `.agent/workflows/`                                           |
+| Jules prompts     | ✅ Yes                     | `.jules/prompts/`                                             |
+| Patterns          | ✅ Yes                     | `patterns/`                                                   |
+| GitHub templates  | ✅ Yes                     | `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md` |
+| Pre-commit config | ⚠️ Check versions          | `.pre-commit-config.yaml`                                     |
+| AGENTS.md         | ❌ Merge manually          | `AGENTS.md`                                                   |
 
 ### Example: Sync Only Skills
 
@@ -186,20 +206,22 @@ cp /tmp/new-config .pre-commit-config.yaml
 
 Some files have project-specific content that shouldn't be overwritten:
 
-| File | Project-Specific Content |
-|------|-------------------------|
-| `AGENTS.md` | Project name, stack, custom rules |
-| `QUICK_REFERENCE.md` | API routes, env vars |
+| File                      | Project-Specific Content            |
+| ------------------------- | ----------------------------------- |
+| `AGENTS.md`               | Project name, stack, custom rules   |
+| `QUICK_REFERENCE.md`      | API routes, env vars                |
 | `.pre-commit-config.yaml` | Additional hooks, version overrides |
 
 ### Merge Strategy
 
 1. **Extract template changes**
+
    ```bash
    git show template/main:template/AGENTS.md > /tmp/template-agents.md
    ```
 
 2. **Compare with project version**
+
    ```bash
    diff AGENTS.md /tmp/template-agents.md
    ```
@@ -210,6 +232,7 @@ Some files have project-specific content that shouldn't be overwritten:
    - Update shared sections if improved
 
 4. **Document the merge**
+
    ```bash
    git commit -m "chore: merge AGENTS.md updates from template"
    ```
@@ -220,11 +243,11 @@ Some files have project-specific content that shouldn't be overwritten:
 
 When reading template CHANGELOG, look for sync indicators:
 
-| Indicator | Meaning | Action |
-|-----------|---------|--------|
-| `[SYNC-REQUIRED]` | Security, critical fix | Sync immediately |
-| `[SYNC-RECOMMENDED]` | New skill, workflow | Sync when convenient |
-| `[SYNC-OPTIONAL]` | Docs, formatting | Sync if desired |
+| Indicator            | Meaning                | Action               |
+| -------------------- | ---------------------- | -------------------- |
+| `[SYNC-REQUIRED]`    | Security, critical fix | Sync immediately     |
+| `[SYNC-RECOMMENDED]` | New skill, workflow    | Sync when convenient |
+| `[SYNC-OPTIONAL]`    | Docs, formatting       | Sync if desired      |
 
 ---
 

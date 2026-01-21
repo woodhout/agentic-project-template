@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: standard workflow for running Python commands in this project
 ---
+scope: universal
 
 # Python Development Workflow
 
@@ -9,7 +11,9 @@ description: standard workflow for running Python commands in this project
 ## Before Running ANY Python Command
 
 // turbo-all
+
 1. Activate the virtual environment:
+
    ```bash
    source .venv/bin/activate
    ```
@@ -19,16 +23,19 @@ description: standard workflow for running Python commands in this project
 ## Examples
 
 **Running tests:**
+
 ```bash
 source .venv/bin/activate && python -m pytest tests/ -v
 ```
 
 **Starting the API server:**
+
 ```bash
 source .venv/bin/activate && uvicorn app.main:app --reload --port 8000
 ```
 
 **Running a Python script:**
+
 ```bash
 source .venv/bin/activate && python verify_api.py
 ```
@@ -38,6 +45,7 @@ source .venv/bin/activate && python verify_api.py
 1. Activate venv first
 2. Install with pip
 3. Update requirements.txt:
+
    ```bash
    source .venv/bin/activate && pip install <package> && pip freeze > requirements.txt
    ```

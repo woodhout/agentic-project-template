@@ -1,5 +1,6 @@
 ---
 description: auto-format code after changes using ruff (Python) and eslint (frontend)
+scope: universal
 ---
 
 # Format Workflow

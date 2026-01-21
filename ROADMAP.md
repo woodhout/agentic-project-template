@@ -14,34 +14,25 @@
 
 ## Planned Items
 
-### 🔴 Explicit First-Time Setup Logic
+### ✅ Explicit First-Time Setup Logic
 
 **Priority:** High
 **Category:** Infrastructure/Automation
 
-Distinguish clearly between first-time setup actions (bootstrap) vs. recurring synchronization (`sync-start`, `template-sync`) to prevent redundant configuration steps in downstream projects.
+First-time setup logic now uses a machine-specific marker file (`.agent/.setup-complete`) to distinguish between initial setup and recurring synchronization.
 
-**Key Requirements:**
-
-- Audit `bootstrap`, `sync-start`, and `template-sync` workflows
-- Ensure idempotent behavior for recurring syncs
-- Verify that "first-time" logic only runs once or when explicitly requested
+> Implemented in `sync-start.md`, `first-time-setup/SKILL.md`, and `bootstrap/SKILL.md`.
 
 ---
 
-### 🔴 Template vs. Downstream Workflow Differentiation
+### ✅ Template vs. Downstream Workflow Differentiation
 
 **Priority:** Medium
 **Category:** Process/Workflow
 
-Analyze and categorize workflows to distinguish those applicable to the template project itself versus those intended for downstream bootstrapped projects.
+Workflows are now organized by scope into subdirectories (`universal/`, `template-only/`, `downstream-only/`) with metadata tags. Bootstrap filters out template-only workflows.
 
-**Key Requirements:**
-
-- Review all `.agent/workflows`
-- Tag or separate workflows relevant only to the template maintenance
-- Ensure downstream projects only receive/inherit relevant workflows
-- Update documentation to reflect the distinction
+> Implemented in `.agent/workflows/` directory structure, `bootstrap/SKILL.md`, and new `/submit-idea` workflow.
 
 ---
 
@@ -264,18 +255,14 @@ Establish a standard workflow/skill for the "Kickoff" phase that occurs _after_ 
 
 ---
 
-### 🔴 Opportunistic Error Fixing
+### ✅ Opportunistic Error Fixing
 
 **Priority:** Medium
 **Category:** Developer Experience
 
 When agents encounter unrelated linting, mypy, or other static analysis errors, they should use judgment to fix them.
 
-**Key Requirements:**
-
-- Agents should note unrelated errors observed during execution
-- Fix errors opportunistically without disrupting the primary task
-- Document fixes in the commit or changelog as appropriate
+> Already implemented in `AGENTS.md` Section 7 (lines 74-79).
 
 ---
 

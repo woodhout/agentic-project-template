@@ -1,6 +1,8 @@
 ---
+scope: universal
 description: check for open PRs and issues, summarize impact, and recommend action
 ---
+scope: universal
 
 # PR Review Workflow
 
