@@ -198,6 +198,22 @@ Reassess all template agent contexts (e.g., `AGENTS.md`), workflows, and skill d
 
 ---
 
+### 🔴 Agent-Optimized Repository Architecture
+
+**Priority:** High
+**Category:** Process/Workflow
+
+Implement a hierarchical documentation strategy to optimize the workflow for Gemini and Claude agents, ensuring consistent logic and minimal token waste.
+
+**Key Requirements:**
+
+- **Core File Concepts:** Implement `README.md`, `AGENTS.md`, and `CLAUDE.md` with clear objectives.
+- **Hierarchical Placement:** Establish root and sub-directory level context files.
+- **Unified Standards:** Symlink `AGENTS.md` to `CLAUDE.md`.
+- **Reference:** See [`reference/agent-optimized-architecture.md`](reference/agent-optimized-architecture.md) for detailed architecture and implementation benefits.
+
+---
+
 ### 🔴 Centralized Idea Queue & Bootstrapping
 
 **Priority:** Medium
