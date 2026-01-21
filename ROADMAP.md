@@ -294,6 +294,29 @@ Add a standard Jules agent to scan project code for deprecation warnings from in
 
 ---
 
+### 🔴 Stitch by Google MCP & Skill
+
+**Priority:** High
+**Category:** Tooling/Skills
+
+Integrate the Stitch by Google MCP server to enable UI generation and design capabilities, and implement the corresponding Agent Skill.
+
+**Key Requirements:**
+
+- **Manual MCP Logic:**
+  - The server is remote: `https://stitch.googleapis.com/mcp`
+  - Requires headers: `Authorization: Bearer <TOKEN>` and `X-Goog-User-Project: <PROJECT_ID>`
+  - Environment variables: `STITCH_ACCESS_TOKEN`, `STITCH_PROJECT_ID`
+- **Prerequisites:**
+  - Active GCP Project
+  - Enable service: `gcloud beta services mcp enable stitch.googleapis.com`
+  - Auth: `gcloud auth login` and `gcloud auth application-default print-access-token` for token generation
+- **Skill Implementation:**
+  - Create a new skill in `.agent/skills/` that encapsulates the usage of this MCP
+  - Follow guidance at `https://stitch.withgoogle.com/docs/mcp/guide/` and `https://stitch.withgoogle.com/docs/mcp/reference/`
+
+---
+
 ### ✅ Conventional Commits
 
 **Priority:** Low

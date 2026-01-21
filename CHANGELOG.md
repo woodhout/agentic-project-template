@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added 🔴 Agent Context & Skill Alignment Review to roadmap.
 - Added 🔴 Centralized Idea Queue & Bootstrapping to roadmap.
 - Added 🔴 Template Sync: Detect New Remote Projects to roadmap.
+- Added 🔴 Stitch by Google MCP & Skill to roadmap (High Priority).
 
 - Project idea tracking infrastructure:
   - `FUTURE_PROJECTS.md` — Template for tracking project ideas with status legend (🆕/🏗️/✅/🗑️)
