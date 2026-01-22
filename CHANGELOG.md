@@ -32,6 +32,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - ✅ Explicit First-Time Setup Logic
   - ✅ Template vs. Downstream Workflow Differentiation
 
+### Fixed
+
+- Fixed template sync check in `sync-start.md` — now uses `synced_commit` SHA instead of date
+- Added `synced_commit` field to `TEMPLATE_VERSION` format
+- Updated `template-sync/SKILL.md` to update both date and commit SHA
+- Removed duplicate `scope:` lines in `sync-start.md`
+
 - Added hierarchical documentation strategy to roadmap.
 
 - Added `Jules Scheduled Jobs Manager` idea to `FUTURE_PROJECTS.md` backlog.
@@ -94,7 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Reset `template/ROADMAP.md` to a clean placeholder for new projects.
   - Added "Standard User-Facing Documentation" item to root roadmap with inspiration reference to `reference/20260116_183359.jpg`.
 
-### Fixed
+### Fixed (Previous)
 
 - Fixed `/sync-start` falsely triggering first-time-setup when switching between established projects:
   - Removed global `~/.gemini/GEMINI.md` symlink from first-time-setup detection (not project-specific)

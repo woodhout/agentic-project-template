@@ -1,8 +1,7 @@
 ---
-scope: universal
 description: start a development session with full sync and dependency check
----
 scope: universal
+---
 
 # Sync Start Workflow
 
@@ -29,7 +28,6 @@ If `.agent/.setup-complete` exists, skip first-time setup and proceed to Step 1.
 The skill will handle complete environment setup before continuing.
 
 ---
-scope: universal
 
 1. **Pull latest changes**:
 
@@ -46,8 +44,9 @@ scope: universal
    ```
 
    **If template remote exists:**
-   - Check for updates: `git log --oneline $(grep synced TEMPLATE_VERSION | cut -d: -f2 | tr -d ' ')..template/main -- template/`
-   - If updates found, run `/template-sync` to apply (skill handles skipping inapplicable items)
+   - Check for updates: `git log --oneline $(grep synced_commit TEMPLATE_VERSION | cut -d: -f2 | tr -d ' ')..template/main -- template/`
+   - If the `synced_commit` field is missing or the command fails, run `/template-sync` to update
+   - If updates found, run `/template-sync` to apply
    - If no updates, continue
 
    **If no `TEMPLATE_VERSION` file:** Skip this step (project not using template sync).

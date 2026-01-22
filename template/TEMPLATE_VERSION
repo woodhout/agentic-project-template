@@ -1,7 +1,8 @@
 template: woodhout/agentic-project-template
 template_url: https://github.com/woodhout/agentic-project-template
-version: v1.1.1
-synced: 2026-01-18
+version: v1.1.2
+synced: 2026-01-21
+synced_commit: beaa721
 notes: |
   - Fixed /sync-start to activate venv before running pre-commit install.
   - Added Roadmap (Items 3-6): Autonomous Testing, Deep Research Skill, Opportunistic Error Fixing, Jules Deprecation Scanner.

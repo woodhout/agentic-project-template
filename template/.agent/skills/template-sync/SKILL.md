@@ -133,8 +133,14 @@ Start
 6. **Update version tracking**
 
    ```bash
-   # Update TEMPLATE_VERSION
+   # Update TEMPLATE_VERSION date and commit
+   TEMPLATE_COMMIT=$(git rev-parse --short template/main)
    sed -i '' "s/synced:.*/synced: $(date +%Y-%m-%d)/" TEMPLATE_VERSION
+   sed -i '' "s/synced_commit:.*/synced_commit: $TEMPLATE_COMMIT/" TEMPLATE_VERSION
+   # If synced_commit doesn't exist, add it after synced line
+   grep -q "synced_commit:" TEMPLATE_VERSION || sed -i '' "/^synced:/a\\
+   synced_commit: $TEMPLATE_COMMIT
+   " TEMPLATE_VERSION
    ```
 
 7. **Test and commit**
