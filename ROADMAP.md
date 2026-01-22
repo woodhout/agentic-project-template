@@ -358,6 +358,96 @@ Add `.github/PULL_REQUEST_TEMPLATE.md` and issue templates for consistent bug/fe
 
 ---
 
+### 🔴 Deep Research: Antigravity IDE Best Practices
+
+**Priority:** High
+**Category:** Research/Docs
+
+Conduct a deep research analysis to identify the latest best practices for leveraging the Antigravity IDE for agentic coding, specifically tailored to bridge the gap between novice developers and experienced software engineers.
+
+**Key Requirements:**
+
+- **Focus Area:** Project scaffolding and architectural setup.
+- **Goal:** Enable a novice developer to setup a project that mirrors the standards and structure of an experienced SWE.
+- **Deliverable:** A comprehensive guide or set of "Gold Standard" templates/practices.
+
+---
+
+### 🔴 Deep Research: Agentic System Architectures
+
+**Priority:** High
+**Category:** Research/Docs
+
+Conduct a deep research analysis on the latest agentic system architecture patterns, variations, and decision frameworks.
+
+**Key Requirements:**
+
+- **Scope:** Investigate various architecture patterns (e.g., multi-agent tiers, hierarchical planning, swarms).
+- **Analysis:** Provide a comparative guide on "when to use" specific architectures based on project complexity and requirements.
+- **Deliverable:** A reference document or matrix for selecting the right agentic architecture.
+
+---
+
+### 🔴 Tool & Dependency Feature Tracking
+
+**Priority:** Medium
+**Category:** Tooling/Maintenance
+
+Research and implement a mechanism to proactively identify new features shipping with updates to project tools and dependencies (CLIs, packages, frameworks).
+
+**Key Requirements:**
+
+- **Goal:** Ensure the project continuously evolves by leveraging new capabilities in its stack.
+- **Mechanism:** A system (automated or workflow-based) to bubble up "What's New" for critical dependencies.
+- **Benefit Analysis:** For each major update, prompt for consideration of any benefits to utilizing the new features.
+
+---
+
+### 🔴 Deep Research: Multi-Environment Architecture
+
+**Priority:** Medium
+**Category:** Research/Architecture
+
+Conduct a deep research analysis for best practices on multi-environment architecture specifically for non-commercial applications.
+
+**Key Requirements:**
+
+- **Context:** Non-commercial / Personal / Open Source projects.
+- **Decision Framework:** Define criteria for when to introduce distinct environments (e.g., Test, QA, Sandbox) vs. keeping a simpler dev/prod split.
+- **Deliverable:** A guide on scaling environment complexity only when necessary.
+
+---
+
+### 🔴 Conflict-Free Automated Changelog Updates
+
+**Priority:** Medium
+**Category:** Maintenance/Automation
+
+Research options to modify Jules scheduled tasks to document their changes in a way that avoids merge conflicts (e.g., appending to a queue or using fragment files) rather than editing the main `CHANGELOG.md` directly in the PR.
+
+**Key Requirements:**
+
+- **Context:** Concurrent PRs from automated agents (Jules) often conflict on `CHANGELOG.md` because they start from the same base version.
+- **Research:** Evaluate patterns like changelog fragments (e.g., `towncrier`, `changelog-d`) or distinct append-only logs that are consolidated later.
+- **Outcome:** A recommendation and implementation plan for ensuring automated tasks can document changes without blocking each other at merge time.
+
+---
+
+### 🔴 Standardized Workflow Step Documentation
+
+**Priority:** Medium
+**Category:** Documentation
+
+Create a standard document (or template) for each workflow defined in the project that outlines the specific steps the workflow takes as a clear task list.
+
+**Key Requirements:**
+
+- **Step-by-Step Breakdown:** Each workflow should have a corresponding human-readable list of actions it performs.
+- **Standardization:** Define a consistent format for these descriptions (e.g., a "Steps" section in the workflow definition or a companion markdown file).
+- **Goal:** Allow users to understand exactly what a workflow does (e.g., "Sync Start") without parsing the implementation code.
+
+---
+
 ## 🔒 Recovery & Safety
 
 ### ✅ Rollback & Recovery Guidance

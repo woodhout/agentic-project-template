@@ -40,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed duplicate `scope:` lines in `sync-start.md`
 
 - Added hierarchical documentation strategy to roadmap.
+- Added `Conflict-Free Automated Changelog Updates` to roadmap (Medium Priority).
+- Added `Standardized Workflow Step Documentation` to roadmap (Medium Priority).
 
 - Added `Jules Scheduled Jobs Manager` idea to `FUTURE_PROJECTS.md` backlog.
 - Added `Explicit First-Time Setup Logic` to roadmap (High Priority).
