@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Research Report: `reference/research/autonomous-maintenance-health-checks.md` covering autonomous maintenance paradigms
+- Gemini Deep Research Context: `reference/prompts/deep-research-context.md` for orienting external research agents
 - Workflow scope differentiation with directory structure:
   - Reorganized `.agent/workflows/` into `universal/`, `template-only/`, `downstream-only/` subdirectories
   - Added `scope:` metadata to workflow frontmatter
@@ -27,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updated `ROADMAP.md` with "Periodic Health Checks" research reference
 - Marked three roadmap items as completed:
   - ✅ Opportunistic Error Fixing (already existed in AGENTS.md Section 7)
   - ✅ Explicit First-Time Setup Logic

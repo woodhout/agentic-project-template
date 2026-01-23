@@ -172,6 +172,8 @@ Establish a process for periodic project health checks and technical assessments
 - **LLM Architecture Review:** Assessment of models used, orchestration patterns, and model sources (OpenRouter vs Direct) to optimize for cost/performance.
 - **Output:** Standardized report templates for these finding.
 
+> **Deep Research Reference:** See [`reference/research/autonomous-maintenance-health-checks.md`](reference/research/autonomous-maintenance-health-checks.md) for a comprehensive analysis of the autonomous maintenance paradigm and agentic implementation strategies.
+
 ---
 
 ### 🔴 Agent Context & Skill Alignment Review
